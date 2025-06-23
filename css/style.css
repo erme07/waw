@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafbfc;
+    line-height: 1.5;
+}
+
+/* contenedor principal de la pagina */
+.contenido {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* secciones de ejemplo */
+.seccion {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(176,196,222,0.15);
+    border: 1px solid #e8f0f5;
+}
+
+.header {
+    background: linear-gradient(135deg, #b0c4de, #9bb5d1);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(176,196,222,0.2);
+}
+
+.botones button {
+    background: #9bb5d1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botones button:hover {
+    background: #86a3c4;
+}

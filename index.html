@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAW</title>
+    <link rel="stylesheet" href="./css/widget.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    
+    <!-- contenido principal de la pagina -->
+    <div id="contenido-principal">
+        <div class="header">
+            <h1>Widget de Accesibilidad - Pagina de Prueba</h1>
+            <p>Usa el boton azul de la esquina para probar las funciones</p>
+        </div>
+
+        <div class="contenido">
+            <!-- seccion para probar texto -->
+            <div class="seccion">
+                <h2>Prueba el tamaño de texto</h2>
+                <p><span>Este parrafo te ayuda</span> a probar si el texto se hace mas grande o mas pequeño cuando usas los controles del widget.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Puedes seleccionar este texto y <strong>usar la funcion de "texto a voz"</strong> para escucharlo.</p>
+            </div>
+
+            <!-- seccion con imagenes -->
+            <div class="seccion">
+                <h2>Prueba los filtros visuales</h2>
+                <p>Estas imagenes cambian cuando activas "Invertir colores" o "Escala de grises":</p>
+                <div style="display: flex; gap: 15px; margin: 15px 0;">
+                    <img src="https://picsum.photos/200/150?random=1" alt="Imagen de ejemplo 1" style="border-radius: 8px;">
+                    <img src="https://picsum.photos/200/150?random=2" alt="" style="border-radius: 8px;">
+                </div>
+            </div>
+
+            <!-- seccion con enlaces -->
+            <div class="seccion">
+                <h2>Prueba el cursor grande</h2>
+                <p>Aqui hay algunos enlaces para probar:</p>
+                <ul>
+                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 1</a></li>
+                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 2</a></li>
+                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 3</a></li>
+                </ul>
+            </div>
+
+            <!-- seccion para guia de lectura -->
+            <div class="seccion">
+                <h2>Prueba la guia de lectura</h2>
+                <p>Activa la "Guia de lectura" y mueve el mouse sobre este texto. Veras una barra amarilla que sigue tu cursor para ayudarte a leer linea por linea.</p>
+                <p>Esta funcion es muy util para personas con dislexia o problemas de concentracion al leer textos largos en la pantalla.</p>
+            </div>
+
+            <!-- botones interactivos -->
+            <div class="seccion botones">
+                <h2>Botones de prueba</h2>
+                <p>Estos botones te ayudan a probar el cursor grande:</p>
+                <button>Boton 1</button>
+                <button>Boton 2</button>
+                <button onclick="alert('¡Boton 3!')">Boton 3</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boton que muestra/oculta el widget -->
+    <button id="boton-abrir" class="waw-button">
+        <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.691 94.691">
+            <path d="M41.035,83.61c-11.92,0-21.617-9.697-21.617-21.617c0-7.323,3.771-14.187,9.909-18.158l-2.195-11.429 C15.655,37.799,8.336,49.221,8.336,61.992c0,18.029,14.669,32.699,32.699,32.699c8.829,0,17.336-3.624,23.486-9.975 l-4.729-11.988C55.979,79.355,48.826,83.61,41.035,83.61z"></path>
+            <path d="M85.932,86.391L70.962,48.43c-0.666-2.715-3.084-4.615-5.88-4.619L48.974,43.79l-1.126-5.862h17.359 c3.349,0,6.072-2.723,6.072-6.069c0-3.348-2.725-6.071-6.072-6.071H45.515l-1.002-5.218l0.543-0.561 c2.148-2.218,3.331-5.133,3.331-8.207C48.387,5.294,43.093,0,36.584,0c-6.508,0-11.801,5.294-11.801,11.802 c0,4.695,2.785,8.943,7.096,10.821l0.725,0.315l5.392,28.064c0.021,0.098,0.041,0.174,0.062,0.252l0.176,0.606 c0.031,0.087,0.063,0.18,0.099,0.269l0.088,0.201c0.055,0.121,0.104,0.227,0.157,0.329l0.099,0.179 c0.06,0.105,0.125,0.215,0.193,0.319l0.102,0.153c0.074,0.106,0.154,0.213,0.237,0.316l0.092,0.116 c0.093,0.11,0.19,0.216,0.289,0.319l0.077,0.08c0.133,0.135,0.253,0.242,0.376,0.346l0.091,0.081 c0.106,0.086,0.254,0.196,0.406,0.301l0.151,0.095c0.095,0.061,0.201,0.129,0.314,0.19l0.131,0.067 c0.171,0.086,0.271,0.138,0.374,0.184l0.181,0.074c0.139,0.055,0.242,0.094,0.348,0.129l0.207,0.064 c0.123,0.037,0.246,0.066,0.37,0.096l0.185,0.041c0.143,0.027,0.294,0.05,0.446,0.066l0.118,0.018 c0.168,0.017,0.351,0.029,0.536,0.031l0.086-0.002l16.881,0.021l13.771,34.9c0.922,2.334,3.14,3.844,5.649,3.844 c0.759,0,1.509-0.145,2.228-0.428C85.627,93.036,87.16,89.504,85.932,86.391z"></path>
+        </svg>
+    </button>
+
+    <!-- Contenedor del widget de accesibilidad -->
+    <aside id="waw-widget" class="waw">
+        <!-- <div class="waw__overlay"></div> -->
+        <!-- Encabezado del widget -->
+        <header class="waw__header">
+            <h2>Ajustes de accesibilidad</h2>
+            <div class="header-options">
+                <button class="header-options__button header-options__button--small" title="Instrucciones de uso">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-info"></use>
+                    </svg>
+                </button>
+                <button class="header-options__button header-options__button--small" data-function="toggle-theme" title="Cambiar tema">
+                    <svg class="light">
+                        <use href="./assets/icons/icons.svg#icon-light"></use>
+                    </svg>
+                    <svg class="dark">
+                        <use href="./assets/icons/icons.svg#icon-dark"></use>
+                    </svg>
+                </button>
+                <button class="header-options__button header-options__button--small" data-function="reset" title="Restablecer ajustes">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-reset"></use>
+                    </svg>
+                </button> 
+                <button id="boton-cerrar" class="header-options__button" title="Cerrar widget">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <!-- Cuerpo principal del widget -->
+        <section class="waw__body">
+            <!-- Grid con las opciones de accesibilidad -->
+            <div class="grid">
+                <div class="opcion opcion--texto"> <!-- Opción "Tamaño del texto" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#text"></use>
+                    </svg>
+                    <span class="opcion__nombre">Tamaño del Texto</span>
+                    <div class="opcion__control">
+                        <button id="btn-text-minus" class="opcion__boton" data-function="control-text">-</button>
+                        <input type="range" id="text-slider" class="opcion__slider" min="80" max="150" value="100">
+                        <button id="btn-text-plus" class="opcion__boton" data-function="control-text">+</button>
+                    </div>
+                </div>
+                <button id="btn-big-cursor" class="opcion opcion--cursor"> <!-- Opción "Cursor grande" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#cursor"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Cursor Grande</span>
+                </button>
+                <button id="btn-voice-reading" class="opcion opcion--narrador"> <!-- Opción "Texto a voz" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#voice"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Lector de Pantalla</span>
+                </button>
+                <button id="btn-color-invert" class="opcion opcion--invertir"> <!-- Opción "Invertir color" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#inverted"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Invertir Colores</span>
+                </button>
+                <button id="btn-greyscale" class="opcion opcion--grises"> <!-- Opción "Escala de grises" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#greyscale"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Escala de Grises</span>
+                </button>
+                <button id="btn-reading-line" class="opcion opcion--guia"> <!-- Opción "Guia de lectura" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#line"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Guia de Lectura</span>
+                </button>
+                <button id="btn-reading-mask" class="opcion opcion--mascara"> <!-- Opción "Mascara de lectura" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#mask"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Mascara de Lectura</span>
+                </button>
+                <button id="btn-highlight-links" class="opcion opcion--link"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#links"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Resaltar Enlaces</h3>
+                </button>
+                <button class="opcion opcion--reset" data-function="reset"> <!-- Opción "Restablecer ajustes" -->
+                    <span class="opcion__nombre">Restablecer Ajustes</span>
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-reset"></use>
+                    </svg>
+                </button>
+            </div>
+            <!-- Sección "Configuración" -->
+            <details class="accordion" open>
+                <summary class="accordion__head">
+                    Configuración
+                    <svg aria-hidden="true">
+                        <use href="./assets/icons/icons.svg#icon-arrow"></use>
+                    </svg>
+                </summary>
+                <div class="accordion__body">
+                    En construcción...
+                </div>
+            </details>
+            <!-- Sección "Acerca de" -->
+            <details class="accordion about">
+                <summary class="accordion__head">
+                    Acerca de
+                    <svg aria-hidden="true">
+                        <use href="./assets/icons/icons.svg#icon-arrow"></use>
+                    </svg>
+                </summary>
+                <div class="accordion__body">
+                    <div class="about__item">
+                        <h3>Proyecto</h3>
+                        <p>Widget de Accesibilidad Web (WAW)</p>
+                    </div>
+                    <div class="about__item">
+                        <h3>Institución</h3>
+                        <p>Universidad Nacional del Oeste (UNO)</p>
+                    </div>
+                    <div class="about__item">
+                        <h3>Responsables</h3>
+                        <ul class="about__list">
+                            <li>Pablo Pandolfo</li>
+                            <li>Andrada Alexander Alexis</li>
+                            <li>Elisey Larco Agustin</li>
+                            <li>Ramirez Walter</li>
+                            <li>Medina Erik</li>
+                            <li>Lobo Santiago</li>
+                            <li>Guzman Alexander</li>
+                        </ul>
+                    </div>
+                    <div class="about__item">
+                        <a class="about__link" href="">
+                            <svg>
+                                <use href="./assets/icons/icons.svg#icon-github"></use>
+                            </svg>
+                        </a>
+                        <a class="about__link" href="">
+                            <svg>
+                                <use href="./assets/icons/icons.svg#icon-npm"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </details>
+        </section>
+        <!-- Footer del widget -->
+        <footer class="waw__footer">
+            <svg class="">
+                <use href="./assets/icons/icons.svg#logo"></use>
+            </svg>
+            <p>Widget de Accesibilidad Web</p>
+        </footer>
+    </aside>
+
+    
+
+    <div id="waw-reading-mask" class="waw-reading-mask hidden">
+        <div id="waw-reading-mask__top" class="waw-reading-mask__top"></div>
+        <div id="waw-reading-mask__middle" class="waw-reading-mask__middle">
+            <div class="reading-controls">
+                <span></span>
+                <button id="btn-plus-mask" class="reading-controls__button" title="Aumentar tamaño de la máscara">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-plus"></use>
+                    </svg>
+                </button>
+                <button id="btn-minus-mask" class="reading-controls__button" title="Disminuir tamaño de la máscara">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-minus"></use>
+                    </svg>
+                </button>
+                <button id="btn-close-mask" class="reading-controls__button" title="Cerrar máscara de lectura">
+                    <svg>
+                        <use href="./assets/icons/icons.svg#icon-close-circle"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="waw-reading-mask__bottom"></div>
+    </div>
+
+    <!-- guia de lectura - elemento invisible que se muestra cuando se activa -->
+    <div id="guia-lectura" class="waw-reading-line hidden">
+        <div class="reading-controls reading-controls--line">
+            <span></span>
+            <button id="btn-close-line" class="reading-controls__button" title="Cerrar guía de lectura">
+                <svg>
+                    <use href="./assets/icons/icons.svg#icon-close-circle"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
