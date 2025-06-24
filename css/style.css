@@ -1,46 +1,199 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fafbfc;
-    line-height: 1.5;
+    font-family: "Lexend", sans-serif;
+    background-color: #f8f8f8;
 }
 
-/* contenedor principal de la pagina */
-.contenido {
-    max-width: 800px;
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.container{
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-/* secciones de ejemplo */
-.seccion {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(176,196,222,0.15);
-    border: 1px solid #e8f0f5;
-}
-
-.header {
-    background: linear-gradient(135deg, #b0c4de, #9bb5d1);
-    color: white;
-    padding: 30px;
+.section{
+    margin: 60px 0;
+    margin-bottom: 80px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(176,196,222,0.2);
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    h2{
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
 }
 
-.botones button {
-    background: #9bb5d1;
+.main-header{
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.menu{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.navbar{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    color: white;
+    svg{
+        width: auto;
+        height: 40px;
+    }
 }
 
-.botones button:hover {
-    background: #86a3c4;
+.hero{
+    color: white;
+    height: calc(100vh);
+    background-color: rgba(0, 255, 255, 0.37);
+    background-image: url(../assets/img/hero.jpg);
+    background-size:cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    margin-top: 0;
+    &::before{
+        content:"";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+    .container{
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        padding-top: 60px;
+    }
+    h1{
+        font-size: 3.2rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    p{
+        font-size: 1.1rem;
+    }
+    button{
+        background-color: #9fff63;
+        color: #000000;
+        cursor: pointer;
+        padding: 15px 30px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+
+
+
+.features{
+    display: grid;
+    color: black;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.features__item{
+    display: flex;
+    text-align: left;
+    gap: 20px;
+    svg{
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+        padding: 30px;
+        background-color: #9fff63;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        border: 2px solid black;
+        outline: 2px solid black;
+        outline-offset: -8px;
+    }
+}
+.features__content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.text-body{
+    text-align: left;
+    margin-top: 20px;
+    a{
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    h3{
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    p{
+        margin: 10px 0;
+    }
+    
+}
+
+h4.absolute-font, p.absolute-font{
+    font-size: 16px;
+}
+
+.half-column{
+    display: flex;
+    gap: 40px;
+    img{
+        width: 45%;
+        height: auto;
+    }
+}
+
+.filter-img{
+    display: flex;
+    justify-content: space-between;
+    img{
+        width: 260px;
+        height: auto;
+    }
+}
+
+.main-footer{
+    background-color: #363636;
+    color: white;
+    .menu{
+        font-size: 0.7rem;
+    }
+    .container{
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo svg{
+        height: 30px;
+    }
 }

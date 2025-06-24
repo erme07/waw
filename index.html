@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAW</title>
+    <title>WAW - Widget de Accesibilidad Web</title>
     <link rel="stylesheet" href="./css/widget.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js" defer></script>
@@ -11,58 +11,206 @@
 <body>
     
     <!-- contenido principal de la pagina -->
-    <div id="contenido-principal">
-        <div class="header">
-            <h1>Widget de Accesibilidad - Pagina de Prueba</h1>
-            <p>Usa el boton azul de la esquina para probar las funciones</p>
+    <header class="main-header">
+        <nav class="container navbar">
+            <a href="" class="logo">
+                <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
+                    <path d="M13.8744 6.12564L16.5314 3.46859L33.0628 20L16.5314 36.5314L13.8744 33.8744L27.7487 20L13.8744 6.12564Z" fill="#D41C1C"></path>
+                    <path d="M1.32248e-06 20L13.0628 6.93718L26.1256 20L13.0628 33.0628L10.4058 30.4058L20.8115 20L13.0628 12.2513L2.65705 22.657L1.32248e-06 20Z" fill="#D41C1C"></path>
+                    <path d="M13.0628 13.8744L10.4058 16.5314L13.8744 20L6.93718 26.9372L9.59422 29.5942L19.1885 20L13.0628 13.8744Z" fill="#D41C1C"></path>
+                    <path d="M6.12564 26.1256L3.46859 23.4686L9.56643 17.3708L12.2235 20.0278L6.12564 26.1256Z" fill="#D41C1C"></path>
+                    <path d="M194.405 12.8382C195.692 12.8382 196.842 13.1056 197.852 13.6406C198.882 14.1755 199.685 14.968 200.259 16.0181C200.854 17.0682 201.151 18.3362 201.151 19.8221V29.4808H197.793V20.3273C197.793 18.8612 197.426 17.7418 196.693 16.9691C195.96 16.1766 194.959 15.7803 193.691 15.7803C192.423 15.7803 191.413 16.1766 190.66 16.9691C189.927 17.7418 189.56 18.8612 189.56 20.3273V29.4808H186.202V20.3273C186.202 18.8612 185.836 17.7418 185.103 16.9691C184.37 16.1766 183.369 15.7803 182.101 15.7803C180.833 15.7803 179.823 16.1766 179.07 16.9691C178.337 17.7418 177.97 18.8612 177.97 20.3273V29.4808H174.582V13.1056H177.97V14.9779C178.525 14.3043 179.228 13.7793 180.08 13.4028C180.932 13.0264 181.843 12.8382 182.814 12.8382C184.122 12.8382 185.291 13.1155 186.321 13.6703C187.351 14.225 188.144 15.0275 188.699 16.0775C189.194 15.0869 189.967 14.3043 191.017 13.7297C192.067 13.1353 193.196 12.8382 194.405 12.8382Z" fill="currentColor"></path>
+                    <path d="M171.152 13.1056V29.4807H167.764V27.549C167.229 28.2226 166.526 28.7576 165.654 29.1538C164.802 29.5303 163.891 29.7185 162.92 29.7185C161.632 29.7185 160.473 29.451 159.443 28.9161C158.432 28.3811 157.63 27.5886 157.036 26.5386C156.461 25.4885 156.174 24.2205 156.174 22.7345V13.1056H159.532V22.2293C159.532 23.6954 159.899 24.8248 160.632 25.6173C161.365 26.39 162.365 26.7763 163.633 26.7763C164.901 26.7763 165.902 26.39 166.635 25.6173C167.388 24.8248 167.764 23.6954 167.764 22.2293V13.1056H171.152Z" fill="currentColor"></path>
+                    <path d="M147.431 29.7483C146.143 29.7483 144.984 29.5204 143.954 29.0647C142.943 28.5892 142.141 27.9552 141.547 27.1627C140.952 26.3504 140.635 25.4489 140.596 24.4583H144.103C144.162 25.1517 144.489 25.7362 145.083 26.2117C145.697 26.6674 146.46 26.8952 147.372 26.8952C148.323 26.8952 149.056 26.7169 149.571 26.3603C150.106 25.9839 150.373 25.5083 150.373 24.9338C150.373 24.3196 150.076 23.8639 149.482 23.5667C148.907 23.2695 147.986 22.9426 146.718 22.586C145.489 22.2492 144.489 21.9223 143.716 21.6053C142.943 21.2883 142.27 20.8028 141.695 20.149C141.141 19.4952 140.863 18.6334 140.863 17.5635C140.863 16.6917 141.121 15.8992 141.636 15.186C142.151 14.4529 142.884 13.8783 143.835 13.4623C144.806 13.0462 145.915 12.8382 147.164 12.8382C149.026 12.8382 150.522 13.3137 151.651 14.2647C152.8 15.1959 153.414 16.4738 153.494 18.0984H150.106C150.046 17.3653 149.749 16.7809 149.214 16.345C148.679 15.9091 147.956 15.6912 147.045 15.6912C146.153 15.6912 145.47 15.8596 144.994 16.1964C144.519 16.5332 144.281 16.979 144.281 17.5338C144.281 17.9696 144.439 18.3362 144.756 18.6334C145.073 18.9305 145.46 19.1683 145.915 19.3466C146.371 19.5051 147.045 19.7131 147.936 19.9707C149.125 20.2877 150.096 20.6146 150.849 20.9514C151.621 21.2684 152.285 21.7439 152.84 22.378C153.395 23.012 153.682 23.854 153.702 24.9041C153.702 25.8353 153.444 26.6674 152.929 27.4005C152.414 28.1335 151.681 28.7081 150.73 29.1242C149.799 29.5402 148.699 29.7483 147.431 29.7483Z" fill="currentColor"></path>
+                    <path d="M125.774 15.5129C126.348 14.76 127.131 14.126 128.122 13.6109C129.112 13.0957 130.232 12.8382 131.48 12.8382C132.906 12.8382 134.204 13.1948 135.373 13.908C136.562 14.6015 137.493 15.5822 138.167 16.8502C138.84 18.1182 139.177 19.5745 139.177 21.2189C139.177 22.8634 138.84 24.3394 138.167 25.647C137.493 26.9349 136.562 27.9453 135.373 28.6784C134.204 29.3916 132.906 29.7483 131.48 29.7483C130.232 29.7483 129.122 29.5006 128.151 29.0053C127.18 28.4902 126.388 27.8561 125.774 27.1033V37.2672H122.386V13.1056H125.774V15.5129ZM135.73 21.2189C135.73 20.0896 135.492 19.1188 135.016 18.3064C134.561 17.4743 133.947 16.8502 133.174 16.4342C132.421 15.9983 131.609 15.7803 130.737 15.7803C129.885 15.7803 129.073 15.9983 128.3 16.4342C127.547 16.87 126.933 17.504 126.457 18.3362C126.002 19.1683 125.774 20.149 125.774 21.2783C125.774 22.4077 126.002 23.3983 126.457 24.2502C126.933 25.0824 127.547 25.7164 128.3 26.1523C129.073 26.5881 129.885 26.8061 130.737 26.8061C131.609 26.8061 132.421 26.5881 133.174 26.1523C133.947 25.6966 134.561 25.0428 135.016 24.1908C135.492 23.3389 135.73 22.3482 135.73 21.2189Z" fill="currentColor"></path>
+                    <path d="M117.314 10.9361C116.699 10.9361 116.184 10.7281 115.768 10.312C115.352 9.89598 115.144 9.38085 115.144 8.76665C115.144 8.15246 115.352 7.63733 115.768 7.22127C116.184 6.8052 116.699 6.59717 117.314 6.59717C117.908 6.59717 118.413 6.8052 118.829 7.22127C119.245 7.63733 119.453 8.15246 119.453 8.76665C119.453 9.38085 119.245 9.89598 118.829 10.312C118.413 10.7281 117.908 10.9361 117.314 10.9361ZM118.978 13.1056V29.4808H115.59V13.1056H118.978Z" fill="currentColor"></path>
+                    <path d="M104.781 29.7483C103.236 29.7483 101.839 29.4015 100.591 28.7081C99.3427 27.9948 98.362 27.0042 97.6488 25.7362C96.9355 24.4484 96.5789 22.9624 96.5789 21.2783C96.5789 19.6141 96.9454 18.138 97.6785 16.8502C98.4115 15.5624 99.4121 14.5718 100.68 13.8783C101.948 13.1849 103.365 12.8382 104.93 12.8382C106.495 12.8382 107.912 13.1849 109.18 13.8783C110.448 14.5718 111.448 15.5624 112.181 16.8502C112.914 18.138 113.281 19.6141 113.281 21.2783C113.281 22.9426 112.905 24.4187 112.152 25.7065C111.399 26.9943 110.368 27.9948 109.061 28.7081C107.773 29.4015 106.347 29.7483 104.781 29.7483ZM104.781 26.8061C105.653 26.8061 106.465 26.598 107.218 26.182C107.991 25.7659 108.615 25.1418 109.091 24.3097C109.566 23.4776 109.804 22.4671 109.804 21.2783C109.804 20.0896 109.576 19.0891 109.12 18.2767C108.665 17.4446 108.06 16.8205 107.307 16.4044C106.555 15.9884 105.742 15.7803 104.87 15.7803C103.999 15.7803 103.186 15.9884 102.434 16.4044C101.7 16.8205 101.116 17.4446 100.68 18.2767C100.244 19.0891 100.026 20.0896 100.026 21.2783C100.026 23.0417 100.472 24.4087 101.364 25.3796C102.275 26.3306 103.414 26.8061 104.781 26.8061Z" fill="currentColor"></path>
+                    <path d="M86.8698 29.7483C85.3244 29.7483 83.9276 29.4015 82.6794 28.7081C81.4312 27.9948 80.4505 27.0042 79.7372 25.7362C79.024 24.4484 78.6674 22.9624 78.6674 21.2783C78.6674 19.6141 79.0339 18.138 79.767 16.8502C80.5 15.5624 81.5006 14.5718 82.7686 13.8783C84.0366 13.1849 85.4532 12.8382 87.0184 12.8382C88.5836 12.8382 90.0002 13.1849 91.2682 13.8783C92.5362 14.5718 93.5368 15.5624 94.2698 16.8502C95.0029 18.138 95.3694 19.6141 95.3694 21.2783C95.3694 22.9426 94.993 24.4187 94.2401 25.7065C93.4872 26.9943 92.457 27.9948 91.1493 28.7081C89.8615 29.4015 88.435 29.7483 86.8698 29.7483ZM86.8698 26.8061C87.7416 26.8061 88.5539 26.598 89.3068 26.182C90.0794 25.7659 90.7035 25.1418 91.1791 24.3097C91.6546 23.4776 91.8923 22.4671 91.8923 21.2783C91.8923 20.0896 91.6645 19.0891 91.2088 18.2767C90.7531 17.4446 90.1488 16.8205 89.3959 16.4044C88.643 15.9884 87.8307 15.7803 86.959 15.7803C86.0872 15.7803 85.2749 15.9884 84.522 16.4044C83.7889 16.8205 83.2045 17.4446 82.7686 18.2767C82.3327 19.0891 82.1148 20.0896 82.1148 21.2783C82.1148 23.0417 82.5605 24.4087 83.4521 25.3796C84.3635 26.3306 85.5027 26.8061 86.8698 26.8061Z" fill="currentColor"></path>
+                    <path d="M68.9583 29.7483C67.4129 29.7483 66.0162 29.4015 64.768 28.7081C63.5198 27.9948 62.539 27.0042 61.8258 25.7362C61.1125 24.4484 60.7559 22.9624 60.7559 21.2783C60.7559 19.6141 61.1224 18.138 61.8555 16.8502C62.5886 15.5624 63.5891 14.5718 64.8571 13.8783C66.1251 13.1849 67.5417 12.8382 69.1069 12.8382C70.6721 12.8382 72.0887 13.1849 73.3567 13.8783C74.6247 14.5718 75.6253 15.5624 76.3584 16.8502C77.0914 18.138 77.458 19.6141 77.458 21.2783C77.458 22.9426 77.0815 24.4187 76.3286 25.7065C75.5758 26.9943 74.5455 27.9948 73.2379 28.7081C71.95 29.4015 70.5235 29.7483 68.9583 29.7483ZM68.9583 26.8061C69.8301 26.8061 70.6424 26.598 71.3953 26.182C72.168 25.7659 72.7921 25.1418 73.2676 24.3097C73.7431 23.4776 73.9808 22.4671 73.9808 21.2783C73.9808 20.0896 73.753 19.0891 73.2973 18.2767C72.8416 17.4446 72.2373 16.8205 71.4844 16.4044C70.7316 15.9884 69.9192 15.7803 69.0475 15.7803C68.1757 15.7803 67.3634 15.9884 66.6105 16.4044C65.8775 16.8205 65.293 17.4446 64.8571 18.2767C64.4212 19.0891 64.2033 20.0896 64.2033 21.2783C64.2033 23.0417 64.6491 24.4087 65.5406 25.3796C66.452 26.3306 67.5913 26.8061 68.9583 26.8061Z" fill="currentColor"></path>
+                    <path d="M53.0784 26.7466H60.0624V29.4808H49.6904V8.82607H53.0784V26.7466Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M89.9944 32.524C90.8502 31.8673 91.4654 30.9466 91.7446 29.9046L95.0194 30.782C94.547 32.5449 93.5062 34.1027 92.0583 35.2137C90.6103 36.3247 88.8363 36.927 87.0112 36.927C85.1861 36.927 83.412 36.3247 81.9641 35.2137C80.5162 34.1027 79.4753 32.5449 79.003 30.782L82.2777 29.9046C82.5569 30.9466 83.1722 31.8673 84.028 32.524C84.8838 33.1807 85.9324 33.5367 87.0112 33.5367C88.0899 33.5367 89.1385 33.1807 89.9944 32.524Z" fill="currentColor"></path>
+                </svg>
+            </a>
+            <ul class="menu">
+                <li><a href="">Caracteristicas</a></li>
+                <!-- <li><a href="">Ayuda</a></li> -->
+                <li><a href="">Probar</a></li>
+                <li><a href="">Proyecto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Widget de Accesibilidad Web</h1>
+            <p>Página de prueba</p>
+            <button>probar</button>
         </div>
+    </section>
+    <main>
+    
+        <!-- seccion para probar texto -->
+        <section class="section">
+            <div class="container">
+                <h2>Caracteristicas</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, officiis pariatur rerum corporis quibusdam sunt libero eaque est ullam incidunt quas ipsum itaque adipisci enim neque totam omnis ipsa cupiditate facilis impedit accusantium quo quis quos? Voluptas ad sequi tempore magni delectus totam suscipit, similique reiciendis exercitationem pariatur, veniam iure.</p>
+                <div class="features">
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#text"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Controla el tamaño del texto</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#cursor"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Cursores personalizados</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#greyscale"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Escala de grises</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#inverted"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Invierte los colores</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
 
-        <div class="contenido">
-            <!-- seccion para probar texto -->
-            <div class="seccion">
-                <h2>Prueba el tamaño de texto</h2>
-                <p><span>Este parrafo te ayuda</span> a probar si el texto se hace mas grande o mas pequeño cuando usas los controles del widget.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Puedes seleccionar este texto y <strong>usar la funcion de "texto a voz"</strong> para escucharlo.</p>
-            </div>
-
-            <!-- seccion con imagenes -->
-            <div class="seccion">
-                <h2>Prueba los filtros visuales</h2>
-                <p>Estas imagenes cambian cuando activas "Invertir colores" o "Escala de grises":</p>
-                <div style="display: flex; gap: 15px; margin: 15px 0;">
-                    <img src="https://picsum.photos/200/150?random=1" alt="Imagen de ejemplo 1" style="border-radius: 8px;">
-                    <img src="https://picsum.photos/200/150?random=2" alt="" style="border-radius: 8px;">
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#line"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Guia de lectura</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#mask"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Mascara de lectura</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#voice"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Lectura de pantalla</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
+                    <div class="features__item">
+                        <svg>
+                            <use href="./assets/icons/options.svg#links"></use>
+                        </svg>
+                        <div class="features__content">
+                            <h3>Resalta enlaces</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- seccion con enlaces -->
-            <div class="seccion">
-                <h2>Prueba el cursor grande</h2>
-                <p>Aqui hay algunos enlaces para probar:</p>
-                <ul>
-                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 1</a></li>
-                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 2</a></li>
-                    <li><a href="#" onclick="alert('¡Enlace clickeado!')">Enlace de prueba 3</a></li>
+        <!-- seccion con imagenes -->
+        <section class="section">
+            <div class="container">
+                <h2>Prueba el widget</h2>
+                <p>El contenido a continuación es utilizado únicamente para probar el funcionamiento del widget de accesibilidad. Su propósito es facilitar pruebas en entornos de desarrollo, usando párrafos que incluyen frases completas y coherentes para evaluar la lectura en voz alta, la entonación, las pausas y la navegación del sistema sobre texto estructurado.</p>
+                <div class="text-body half-column">
+                    <div>
+                        <h3>Prueba la lectura de pantalla</h3>
+                        <p><mark>Haz click sobre el elemento del que deseas que el widget lea el contenido</mark></p>
+                        <p><strong>La accesibilidad web es fundamental</strong> para garantizar que todas las personas, independientemente de sus capacidades físicas, cognitivas o tecnológicas, puedan navegar y utilizar sitios web de manera equitativa. <strong>No se trata solo de cumplir normas técnicas</strong>, sino de promover la inclusión y el respeto por la diversidad.</p>
+                        <p>Al diseñar con <a href="">accesibilidad</a> en mente, <strong>se crean experiencias más claras, intuitivas y funcionales</strong> para todos los usuarios, incluyendo aquellos que utilizan lectores de pantalla, navegan con el teclado o dependen de ayudas técnicas. Una web accesible también <strong>mejora el posicionamiento en buscadores</strong>, la velocidad de carga y la calidad general del sitio</p>
+                        <p>Invertir en accesibilidad no es un extra, es una responsabilidad. <strong>La web debe ser un espacio abierto y usable para todos</strong>, sin barreras que limiten la participación digital</p>
+                    </div>
+                    <img src="./assets/img/img1.jpg" alt="">
+                    
+                </div>
+                <div class="text-body">
+                    <h3>Prueba la guia y mascara de lectura</h3>
+                    <p><mark>Activa la "Guia de lectura" o la "Mascar de lectura" y veras unas barra que siguen tu cursor para ayudarte a leer o enfocarte en algunas partes del texto.</mark></p>
+                    <p>La gestión eficiente del tiempo es una habilidad clave tanto en entornos personales como profesionales. A lo largo del día, las personas se enfrentan a múltiples demandas, tareas imprevistas y cambios de prioridad constantes que pueden afectar significativamente su productividad y bienestar. Por esta razón, es fundamental adoptar estrategias que permitan organizar y ejecutar las responsabilidades de forma ordenada y controlada.</p>
+                    <p>Una de las metodologías más <a href="">utilizadas</a> es la técnica del bloque de tiempo, que consiste en dividir el día en segmentos específicos dedicados a tareas concretas. Esto no solo ayuda a mantener el enfoque, sino que también reduce la fatiga mental causada por los cambios de contexto frecuentes. Además, al asignar bloques de tiempo a actividades importantes, se asegura que estas reciban la atención que merecen sin ser desplazadas por interrupciones menores</p>
+                    <p>Otro elemento importante es el uso de listas de tareas, preferentemente jerarquizadas por nivel de prioridad. El sistema Eisenhower, por ejemplo, clasifica las actividades según su urgencia e importancia, permitiendo tomar decisiones más conscientes sobre qué hacer, delegar, posponer o eliminar. Este enfoque evita la sobrecarga cognitiva y mejora la toma de decisiones en momentos de alta presión</p>
+                    <p>Sin embargo, ninguna técnica será efectiva sin un componente de revisión y ajuste constante. Al final de cada jornada o semana, es recomendable evaluar qué funcionó, qué no, y qué puede optimizarse. Esta práctica de <a href="">retroalimentación</a> cierra el ciclo de productividad y permite un aprendizaje continuo basado en la propia experiencia</p>
+
+                </div>
+                <div class="text-body">
+                    <h3>Prueba los filtros de colores</h3>
+                    <p>Activa el filtro de "Escala de grises" o "Invertir" para modificar los colores</p>
+                    <div class="filter-img">
+                        <img src="./assets/img/img_a.jpg" alt="">
+                        <img src="./assets/img/img_b.jpg" alt="">
+                        <img src="./assets/img/img_c.jpg" alt="">
+                        <img src="./assets/img/img_d.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text-body">
+                    <h3>Modifica el tamaño de texto</h3>
+                    <p>Usa los controles para aumentar o disminuir el tamaño de los textos</p>
+                    <h4>Texto con font-size relativo</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sunt laboriosam voluptas delectus dicta, iste soluta quaerat numquam nam quasi! Beatae mollitia officia totam aperiam iure nulla possimus adipisci veritatis.</p>
+                    <h4 class="absolute-font">Texto con font-size absoluto</h4>
+                    <p class="absolute-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, illum, harum reprehenderit ex dignissimos quibusdam placeat similique et ratione impedit quae. Assumenda praesentium eum doloribus quos officiis distinctio harum est.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <a href="" class="logo">
+                <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
+                    <path d="M13.8744 6.12564L16.5314 3.46859L33.0628 20L16.5314 36.5314L13.8744 33.8744L27.7487 20L13.8744 6.12564Z" fill="#D41C1C"></path>
+                    <path d="M1.32248e-06 20L13.0628 6.93718L26.1256 20L13.0628 33.0628L10.4058 30.4058L20.8115 20L13.0628 12.2513L2.65705 22.657L1.32248e-06 20Z" fill="#D41C1C"></path>
+                    <path d="M13.0628 13.8744L10.4058 16.5314L13.8744 20L6.93718 26.9372L9.59422 29.5942L19.1885 20L13.0628 13.8744Z" fill="#D41C1C"></path>
+                    <path d="M6.12564 26.1256L3.46859 23.4686L9.56643 17.3708L12.2235 20.0278L6.12564 26.1256Z" fill="#D41C1C"></path>
+                    <path d="M194.405 12.8382C195.692 12.8382 196.842 13.1056 197.852 13.6406C198.882 14.1755 199.685 14.968 200.259 16.0181C200.854 17.0682 201.151 18.3362 201.151 19.8221V29.4808H197.793V20.3273C197.793 18.8612 197.426 17.7418 196.693 16.9691C195.96 16.1766 194.959 15.7803 193.691 15.7803C192.423 15.7803 191.413 16.1766 190.66 16.9691C189.927 17.7418 189.56 18.8612 189.56 20.3273V29.4808H186.202V20.3273C186.202 18.8612 185.836 17.7418 185.103 16.9691C184.37 16.1766 183.369 15.7803 182.101 15.7803C180.833 15.7803 179.823 16.1766 179.07 16.9691C178.337 17.7418 177.97 18.8612 177.97 20.3273V29.4808H174.582V13.1056H177.97V14.9779C178.525 14.3043 179.228 13.7793 180.08 13.4028C180.932 13.0264 181.843 12.8382 182.814 12.8382C184.122 12.8382 185.291 13.1155 186.321 13.6703C187.351 14.225 188.144 15.0275 188.699 16.0775C189.194 15.0869 189.967 14.3043 191.017 13.7297C192.067 13.1353 193.196 12.8382 194.405 12.8382Z" fill="currentColor"></path>
+                    <path d="M171.152 13.1056V29.4807H167.764V27.549C167.229 28.2226 166.526 28.7576 165.654 29.1538C164.802 29.5303 163.891 29.7185 162.92 29.7185C161.632 29.7185 160.473 29.451 159.443 28.9161C158.432 28.3811 157.63 27.5886 157.036 26.5386C156.461 25.4885 156.174 24.2205 156.174 22.7345V13.1056H159.532V22.2293C159.532 23.6954 159.899 24.8248 160.632 25.6173C161.365 26.39 162.365 26.7763 163.633 26.7763C164.901 26.7763 165.902 26.39 166.635 25.6173C167.388 24.8248 167.764 23.6954 167.764 22.2293V13.1056H171.152Z" fill="currentColor"></path>
+                    <path d="M147.431 29.7483C146.143 29.7483 144.984 29.5204 143.954 29.0647C142.943 28.5892 142.141 27.9552 141.547 27.1627C140.952 26.3504 140.635 25.4489 140.596 24.4583H144.103C144.162 25.1517 144.489 25.7362 145.083 26.2117C145.697 26.6674 146.46 26.8952 147.372 26.8952C148.323 26.8952 149.056 26.7169 149.571 26.3603C150.106 25.9839 150.373 25.5083 150.373 24.9338C150.373 24.3196 150.076 23.8639 149.482 23.5667C148.907 23.2695 147.986 22.9426 146.718 22.586C145.489 22.2492 144.489 21.9223 143.716 21.6053C142.943 21.2883 142.27 20.8028 141.695 20.149C141.141 19.4952 140.863 18.6334 140.863 17.5635C140.863 16.6917 141.121 15.8992 141.636 15.186C142.151 14.4529 142.884 13.8783 143.835 13.4623C144.806 13.0462 145.915 12.8382 147.164 12.8382C149.026 12.8382 150.522 13.3137 151.651 14.2647C152.8 15.1959 153.414 16.4738 153.494 18.0984H150.106C150.046 17.3653 149.749 16.7809 149.214 16.345C148.679 15.9091 147.956 15.6912 147.045 15.6912C146.153 15.6912 145.47 15.8596 144.994 16.1964C144.519 16.5332 144.281 16.979 144.281 17.5338C144.281 17.9696 144.439 18.3362 144.756 18.6334C145.073 18.9305 145.46 19.1683 145.915 19.3466C146.371 19.5051 147.045 19.7131 147.936 19.9707C149.125 20.2877 150.096 20.6146 150.849 20.9514C151.621 21.2684 152.285 21.7439 152.84 22.378C153.395 23.012 153.682 23.854 153.702 24.9041C153.702 25.8353 153.444 26.6674 152.929 27.4005C152.414 28.1335 151.681 28.7081 150.73 29.1242C149.799 29.5402 148.699 29.7483 147.431 29.7483Z" fill="currentColor"></path>
+                    <path d="M125.774 15.5129C126.348 14.76 127.131 14.126 128.122 13.6109C129.112 13.0957 130.232 12.8382 131.48 12.8382C132.906 12.8382 134.204 13.1948 135.373 13.908C136.562 14.6015 137.493 15.5822 138.167 16.8502C138.84 18.1182 139.177 19.5745 139.177 21.2189C139.177 22.8634 138.84 24.3394 138.167 25.647C137.493 26.9349 136.562 27.9453 135.373 28.6784C134.204 29.3916 132.906 29.7483 131.48 29.7483C130.232 29.7483 129.122 29.5006 128.151 29.0053C127.18 28.4902 126.388 27.8561 125.774 27.1033V37.2672H122.386V13.1056H125.774V15.5129ZM135.73 21.2189C135.73 20.0896 135.492 19.1188 135.016 18.3064C134.561 17.4743 133.947 16.8502 133.174 16.4342C132.421 15.9983 131.609 15.7803 130.737 15.7803C129.885 15.7803 129.073 15.9983 128.3 16.4342C127.547 16.87 126.933 17.504 126.457 18.3362C126.002 19.1683 125.774 20.149 125.774 21.2783C125.774 22.4077 126.002 23.3983 126.457 24.2502C126.933 25.0824 127.547 25.7164 128.3 26.1523C129.073 26.5881 129.885 26.8061 130.737 26.8061C131.609 26.8061 132.421 26.5881 133.174 26.1523C133.947 25.6966 134.561 25.0428 135.016 24.1908C135.492 23.3389 135.73 22.3482 135.73 21.2189Z" fill="currentColor"></path>
+                    <path d="M117.314 10.9361C116.699 10.9361 116.184 10.7281 115.768 10.312C115.352 9.89598 115.144 9.38085 115.144 8.76665C115.144 8.15246 115.352 7.63733 115.768 7.22127C116.184 6.8052 116.699 6.59717 117.314 6.59717C117.908 6.59717 118.413 6.8052 118.829 7.22127C119.245 7.63733 119.453 8.15246 119.453 8.76665C119.453 9.38085 119.245 9.89598 118.829 10.312C118.413 10.7281 117.908 10.9361 117.314 10.9361ZM118.978 13.1056V29.4808H115.59V13.1056H118.978Z" fill="currentColor"></path>
+                    <path d="M104.781 29.7483C103.236 29.7483 101.839 29.4015 100.591 28.7081C99.3427 27.9948 98.362 27.0042 97.6488 25.7362C96.9355 24.4484 96.5789 22.9624 96.5789 21.2783C96.5789 19.6141 96.9454 18.138 97.6785 16.8502C98.4115 15.5624 99.4121 14.5718 100.68 13.8783C101.948 13.1849 103.365 12.8382 104.93 12.8382C106.495 12.8382 107.912 13.1849 109.18 13.8783C110.448 14.5718 111.448 15.5624 112.181 16.8502C112.914 18.138 113.281 19.6141 113.281 21.2783C113.281 22.9426 112.905 24.4187 112.152 25.7065C111.399 26.9943 110.368 27.9948 109.061 28.7081C107.773 29.4015 106.347 29.7483 104.781 29.7483ZM104.781 26.8061C105.653 26.8061 106.465 26.598 107.218 26.182C107.991 25.7659 108.615 25.1418 109.091 24.3097C109.566 23.4776 109.804 22.4671 109.804 21.2783C109.804 20.0896 109.576 19.0891 109.12 18.2767C108.665 17.4446 108.06 16.8205 107.307 16.4044C106.555 15.9884 105.742 15.7803 104.87 15.7803C103.999 15.7803 103.186 15.9884 102.434 16.4044C101.7 16.8205 101.116 17.4446 100.68 18.2767C100.244 19.0891 100.026 20.0896 100.026 21.2783C100.026 23.0417 100.472 24.4087 101.364 25.3796C102.275 26.3306 103.414 26.8061 104.781 26.8061Z" fill="currentColor"></path>
+                    <path d="M86.8698 29.7483C85.3244 29.7483 83.9276 29.4015 82.6794 28.7081C81.4312 27.9948 80.4505 27.0042 79.7372 25.7362C79.024 24.4484 78.6674 22.9624 78.6674 21.2783C78.6674 19.6141 79.0339 18.138 79.767 16.8502C80.5 15.5624 81.5006 14.5718 82.7686 13.8783C84.0366 13.1849 85.4532 12.8382 87.0184 12.8382C88.5836 12.8382 90.0002 13.1849 91.2682 13.8783C92.5362 14.5718 93.5368 15.5624 94.2698 16.8502C95.0029 18.138 95.3694 19.6141 95.3694 21.2783C95.3694 22.9426 94.993 24.4187 94.2401 25.7065C93.4872 26.9943 92.457 27.9948 91.1493 28.7081C89.8615 29.4015 88.435 29.7483 86.8698 29.7483ZM86.8698 26.8061C87.7416 26.8061 88.5539 26.598 89.3068 26.182C90.0794 25.7659 90.7035 25.1418 91.1791 24.3097C91.6546 23.4776 91.8923 22.4671 91.8923 21.2783C91.8923 20.0896 91.6645 19.0891 91.2088 18.2767C90.7531 17.4446 90.1488 16.8205 89.3959 16.4044C88.643 15.9884 87.8307 15.7803 86.959 15.7803C86.0872 15.7803 85.2749 15.9884 84.522 16.4044C83.7889 16.8205 83.2045 17.4446 82.7686 18.2767C82.3327 19.0891 82.1148 20.0896 82.1148 21.2783C82.1148 23.0417 82.5605 24.4087 83.4521 25.3796C84.3635 26.3306 85.5027 26.8061 86.8698 26.8061Z" fill="currentColor"></path>
+                    <path d="M68.9583 29.7483C67.4129 29.7483 66.0162 29.4015 64.768 28.7081C63.5198 27.9948 62.539 27.0042 61.8258 25.7362C61.1125 24.4484 60.7559 22.9624 60.7559 21.2783C60.7559 19.6141 61.1224 18.138 61.8555 16.8502C62.5886 15.5624 63.5891 14.5718 64.8571 13.8783C66.1251 13.1849 67.5417 12.8382 69.1069 12.8382C70.6721 12.8382 72.0887 13.1849 73.3567 13.8783C74.6247 14.5718 75.6253 15.5624 76.3584 16.8502C77.0914 18.138 77.458 19.6141 77.458 21.2783C77.458 22.9426 77.0815 24.4187 76.3286 25.7065C75.5758 26.9943 74.5455 27.9948 73.2379 28.7081C71.95 29.4015 70.5235 29.7483 68.9583 29.7483ZM68.9583 26.8061C69.8301 26.8061 70.6424 26.598 71.3953 26.182C72.168 25.7659 72.7921 25.1418 73.2676 24.3097C73.7431 23.4776 73.9808 22.4671 73.9808 21.2783C73.9808 20.0896 73.753 19.0891 73.2973 18.2767C72.8416 17.4446 72.2373 16.8205 71.4844 16.4044C70.7316 15.9884 69.9192 15.7803 69.0475 15.7803C68.1757 15.7803 67.3634 15.9884 66.6105 16.4044C65.8775 16.8205 65.293 17.4446 64.8571 18.2767C64.4212 19.0891 64.2033 20.0896 64.2033 21.2783C64.2033 23.0417 64.6491 24.4087 65.5406 25.3796C66.452 26.3306 67.5913 26.8061 68.9583 26.8061Z" fill="currentColor"></path>
+                    <path d="M53.0784 26.7466H60.0624V29.4808H49.6904V8.82607H53.0784V26.7466Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M89.9944 32.524C90.8502 31.8673 91.4654 30.9466 91.7446 29.9046L95.0194 30.782C94.547 32.5449 93.5062 34.1027 92.0583 35.2137C90.6103 36.3247 88.8363 36.927 87.0112 36.927C85.1861 36.927 83.412 36.3247 81.9641 35.2137C80.5162 34.1027 79.4753 32.5449 79.003 30.782L82.2777 29.9046C82.5569 30.9466 83.1722 31.8673 84.028 32.524C84.8838 33.1807 85.9324 33.5367 87.0112 33.5367C88.0899 33.5367 89.1385 33.1807 89.9944 32.524Z" fill="currentColor"></path>
+                </svg>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="">Primer Elemento</a></li>
+                    <li><a href="">Segundo Elemento</a></li>
+                    <li><a href="">Tercer Elemento</a></li>
                 </ul>
-            </div>
-
-            <!-- seccion para guia de lectura -->
-            <div class="seccion">
-                <h2>Prueba la guia de lectura</h2>
-                <p>Activa la "Guia de lectura" y mueve el mouse sobre este texto. Veras una barra amarilla que sigue tu cursor para ayudarte a leer linea por linea.</p>
-                <p>Esta funcion es muy util para personas con dislexia o problemas de concentracion al leer textos largos en la pantalla.</p>
-            </div>
-
-            <!-- botones interactivos -->
-            <div class="seccion botones">
-                <h2>Botones de prueba</h2>
-                <p>Estos botones te ayudan a probar el cursor grande:</p>
-                <button>Boton 1</button>
-                <button>Boton 2</button>
-                <button onclick="alert('¡Boton 3!')">Boton 3</button>
-            </div>
+            </nav>
         </div>
-    </div>
+    </footer>
+
+
 
     <!-- Boton que muestra/oculta el widget -->
     <button id="boton-abrir" class="waw-button">
