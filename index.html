@@ -12,7 +12,7 @@
     
     <!-- contenido principal de la pagina -->
     <header class="main-header">
-        <nav class="container navbar">
+        <nav class="container navbar flex align-center justify-between">
             <a href="" class="logo">
                 <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
@@ -32,19 +32,18 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M89.9944 32.524C90.8502 31.8673 91.4654 30.9466 91.7446 29.9046L95.0194 30.782C94.547 32.5449 93.5062 34.1027 92.0583 35.2137C90.6103 36.3247 88.8363 36.927 87.0112 36.927C85.1861 36.927 83.412 36.3247 81.9641 35.2137C80.5162 34.1027 79.4753 32.5449 79.003 30.782L82.2777 29.9046C82.5569 30.9466 83.1722 31.8673 84.028 32.524C84.8838 33.1807 85.9324 33.5367 87.0112 33.5367C88.0899 33.5367 89.1385 33.1807 89.9944 32.524Z" fill="currentColor"></path>
                 </svg>
             </a>
-            <ul class="menu">
+            <ul class="menu flex gap-30">
                 <li><a href="">Caracteristicas</a></li>
-                <!-- <li><a href="">Ayuda</a></li> -->
                 <li><a href="">Probar</a></li>
                 <li><a href="">Proyecto</a></li>
             </ul>
         </nav>
     </header>
     <section class="hero">
-        <div class="container">
-            <h1>Widget de Accesibilidad Web</h1>
+        <div class="container flex column align-center justify-center gap-20">
+            <h1 class="text-center uppercase">Widget de Accesibilidad Web</h1>
             <p>Página de prueba</p>
-            <button>probar</button>
+            <button class="button uppercase">probar</button>
         </div>
     </section>
     <main>
@@ -52,78 +51,78 @@
         <!-- seccion para probar texto -->
         <section class="section">
             <div class="container">
-                <h2>Caracteristicas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, officiis pariatur rerum corporis quibusdam sunt libero eaque est ullam incidunt quas ipsum itaque adipisci enim neque totam omnis ipsa cupiditate facilis impedit accusantium quo quis quos? Voluptas ad sequi tempore magni delectus totam suscipit, similique reiciendis exercitationem pariatur, veniam iure.</p>
+                <h2 class="text-center uupercase">Caracteristicas del widget</h2>
+                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, officiis pariatur rerum corporis quibusdam sunt libero eaque est ullam incidunt quas ipsum itaque adipisci enim neque totam omnis ipsa cupiditate facilis impedit accusantium quo quis quos? Voluptas ad sequi tempore magni delectus totam suscipit, similique reiciendis exercitationem pariatur, veniam iure.</p>
                 <div class="features">
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#text"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Controla el tamaño del texto</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#cursor"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Cursores personalizados</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#greyscale"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Escala de grises</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#inverted"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Invierte los colores</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
 
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#line"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Guia de lectura</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#mask"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Mascara de lectura</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#voice"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Lectura de pantalla</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="features__item">
+                    <div class="flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#links"></use>
                         </svg>
-                        <div class="features__content">
+                        <div class="flex column gap-5">
                             <h3>Resalta enlaces</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
@@ -132,56 +131,69 @@
             </div>
         </section>
 
-        <!-- seccion con imagenes -->
         <section class="section">
             <div class="container">
-                <h2>Prueba el widget</h2>
-                <p>El contenido a continuación es utilizado únicamente para probar el funcionamiento del widget de accesibilidad. Su propósito es facilitar pruebas en entornos de desarrollo, usando párrafos que incluyen frases completas y coherentes para evaluar la lectura en voz alta, la entonación, las pausas y la navegación del sistema sobre texto estructurado.</p>
-                <div class="text-body half-column">
+                <h2 class="text-center">Prueba la lectura de pantalla</h2>
+                <p class="text-center">Haz click sobre el elemento del que deseas que el widget lea el contenido</p>
+                <div class="text-body flex gap-40">
                     <div>
-                        <h3>Prueba la lectura de pantalla</h3>
-                        <p><mark>Haz click sobre el elemento del que deseas que el widget lea el contenido</mark></p>
-                        <p><strong>La accesibilidad web es fundamental</strong> para garantizar que todas las personas, independientemente de sus capacidades físicas, cognitivas o tecnológicas, puedan navegar y utilizar sitios web de manera equitativa. <strong>No se trata solo de cumplir normas técnicas</strong>, sino de promover la inclusión y el respeto por la diversidad.</p>
+                        <p><strong>La accesibilidad web es fundamental</strong> para garantizar que todas las personas, independientemente de sus capacidades físicas, sensoriales, cognitivas o tecnológicas, puedan navegar y utilizar sitios web de manera equitativa. <strong>No se trata solo de cumplir con normas técnicas</strong> como las WCAG (Pautas de Accesibilidad al Contenido en la Web), sino de asumir un compromiso ético con la inclusión, la diversidad y la equidad digital. Una web accesible es una web que no excluye, que reconoce la pluralidad de sus usuarios y se adapta a sus necesidades.</p>
                         <p>Al diseñar con <a href="">accesibilidad</a> en mente, <strong>se crean experiencias más claras, intuitivas y funcionales</strong> para todos los usuarios, incluyendo aquellos que utilizan lectores de pantalla, navegan con el teclado o dependen de ayudas técnicas. Una web accesible también <strong>mejora el posicionamiento en buscadores</strong>, la velocidad de carga y la calidad general del sitio</p>
                         <p>Invertir en accesibilidad no es un extra, es una responsabilidad. <strong>La web debe ser un espacio abierto y usable para todos</strong>, sin barreras que limiten la participación digital</p>
                     </div>
                     <img src="./assets/img/img1.jpg" alt="">
-                    
                 </div>
+            </div>
+        </section>
+        <section class="section section--read">
+            <div class="container">
+                <h2 class="text-center">Prueba la guia y mascara de lectura</h2>
+                <p class="text-center"><i>Las guias de lectura te ayudarán a leer o enfocarte en algunas partes del texto.</i></p>
                 <div class="text-body">
-                    <h3>Prueba la guia y mascara de lectura</h3>
-                    <p><mark>Activa la "Guia de lectura" o la "Mascar de lectura" y veras unas barra que siguen tu cursor para ayudarte a leer o enfocarte en algunas partes del texto.</mark></p>
                     <p>La gestión eficiente del tiempo es una habilidad clave tanto en entornos personales como profesionales. A lo largo del día, las personas se enfrentan a múltiples demandas, tareas imprevistas y cambios de prioridad constantes que pueden afectar significativamente su productividad y bienestar. Por esta razón, es fundamental adoptar estrategias que permitan organizar y ejecutar las responsabilidades de forma ordenada y controlada.</p>
                     <p>Una de las metodologías más <a href="">utilizadas</a> es la técnica del bloque de tiempo, que consiste en dividir el día en segmentos específicos dedicados a tareas concretas. Esto no solo ayuda a mantener el enfoque, sino que también reduce la fatiga mental causada por los cambios de contexto frecuentes. Además, al asignar bloques de tiempo a actividades importantes, se asegura que estas reciban la atención que merecen sin ser desplazadas por interrupciones menores</p>
                     <p>Otro elemento importante es el uso de listas de tareas, preferentemente jerarquizadas por nivel de prioridad. El sistema Eisenhower, por ejemplo, clasifica las actividades según su urgencia e importancia, permitiendo tomar decisiones más conscientes sobre qué hacer, delegar, posponer o eliminar. Este enfoque evita la sobrecarga cognitiva y mejora la toma de decisiones en momentos de alta presión</p>
                     <p>Sin embargo, ninguna técnica será efectiva sin un componente de revisión y ajuste constante. Al final de cada jornada o semana, es recomendable evaluar qué funcionó, qué no, y qué puede optimizarse. Esta práctica de <a href="">retroalimentación</a> cierra el ciclo de productividad y permite un aprendizaje continuo basado en la propia experiencia</p>
-
                 </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center">Prueba los filtros de colores</h2>
+                <p class="text-center">Modifica los colores de la página activando el filtro de "Escala de grises" o "Invertir"</p>
+                <div class="filter-img flex justify-between flex-wrap gap-30">
+                    <img src="./assets/img/img_a.jpg" alt="">
+                    <img src="./assets/img/img_b.jpg" alt="">
+                    <img src="./assets/img/img_c.jpg" alt="">
+                    <img src="./assets/img/img_d.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center">Modifica el tamaño de texto</h2>
+                <p class="text-center">Usa los controles para aumentar o disminuir el tamaño de los textos</p>
                 <div class="text-body">
-                    <h3>Prueba los filtros de colores</h3>
-                    <p>Activa el filtro de "Escala de grises" o "Invertir" para modificar los colores</p>
-                    <div class="filter-img">
-                        <img src="./assets/img/img_a.jpg" alt="">
-                        <img src="./assets/img/img_b.jpg" alt="">
-                        <img src="./assets/img/img_c.jpg" alt="">
-                        <img src="./assets/img/img_d.jpg" alt="">
+                    <div class="flex gap-40">
+                        <div class="flex column gap-10">
+                            <h3>Texto con font-size relativo</h3>
+                            <p>Las tecnologías de lectura de pantalla permiten que personas con discapacidades visuales accedan a contenido web mediante la conversión del texto y la estructura del sitio en salida de voz o braille. Estas herramientas no interpretan lo visual, sino el código HTML y la estructura del DOM, por lo que una web bien construida semánticamente y con atributos de accesibilidad como alt, aria-label o role resulta fundamental. Los encabezados, los formularios etiquetados correctamente y el orden lógico en la navegación son claves para una experiencia fluida. Algunos lectores conocidos son NVDA, JAWS, VoiceOver, TalkBack y Narrator, cada uno con características y comandos propios.</p>
+                        </div>
+                        <div class="flex column gap-10">
+                            <h3 class="absolute-font">Texto con font-size absoluto</h3>
+                            <p class="absolute-font">Desarrollar sitios accesibles no solo cumple con principios de inclusión, sino que mejora la experiencia general para todos los usuarios. Aplicar buenas prácticas como el uso correcto de etiquetas HTML, el diseño compatible con navegación por teclado y el uso responsable de atributos ARIA permite que los lectores de pantalla interpreten correctamente la información. La accesibilidad web no debe considerarse un extra, sino un componente esencial de cualquier desarrollo moderno, asegurando que la información esté disponible para todas las personas, sin importar sus capacidades visuales.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="text-body">
-                    <h3>Modifica el tamaño de texto</h3>
-                    <p>Usa los controles para aumentar o disminuir el tamaño de los textos</p>
-                    <h4>Texto con font-size relativo</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sunt laboriosam voluptas delectus dicta, iste soluta quaerat numquam nam quasi! Beatae mollitia officia totam aperiam iure nulla possimus adipisci veritatis.</p>
-                    <h4 class="absolute-font">Texto con font-size absoluto</h4>
-                    <p class="absolute-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, illum, harum reprehenderit ex dignissimos quibusdam placeat similique et ratione impedit quae. Assumenda praesentium eum doloribus quos officiis distinctio harum est.</p>
+                    
+                    
                 </div>
             </div>
         </section>
 
     </main>
     <footer class="main-footer">
-        <div class="container">
-            <a href="" class="logo">
+        <div class="container flex align-center justify-between">
+            <a href="" class="logo flex">
                 <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
                     <path d="M13.8744 6.12564L16.5314 3.46859L33.0628 20L16.5314 36.5314L13.8744 33.8744L27.7487 20L13.8744 6.12564Z" fill="#D41C1C"></path>
@@ -201,7 +213,7 @@
                 </svg>
             </a>
             <nav>
-                <ul class="menu">
+                <ul class="menu flex gap-20 align-center">
                     <li><a href="">Primer Elemento</a></li>
                     <li><a href="">Segundo Elemento</a></li>
                     <li><a href="">Tercer Elemento</a></li>

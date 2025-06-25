@@ -622,4 +622,5 @@ html{
 
 .read-text{
     outline: 5px dashed green;
+    outline-offset: 5px;
 }

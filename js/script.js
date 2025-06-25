@@ -232,7 +232,7 @@ document.addEventListener("click", (e) => {
             temporal_tag = e.target.tagName
             readText()
         }
-        else if((e.target.tagName === 'SPAN' || e.target.tagName === 'STRONG' || e.target.tagName === 'MARK') && e.target.parentElement.tagName === 'P'){
+        else if((e.target.tagName === 'SPAN' || e.target.tagName === 'STRONG' || e.target.tagName === 'MARK' || e.target.tagName === 'I') && e.target.parentElement.tagName === 'P'){
             if(temporal_element) temporal_element.classList.remove("read-text");
             temporal_element = e.target.parentElement
             temporal_element.classList.add("read-text");
