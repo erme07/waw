@@ -92,9 +92,12 @@ const toggleReadingMask = () => {
     if(states.reading_mask){
         updateMaskSize(); // Actualiza el tamaño de la máscara al abrirla
         document.addEventListener('mousemove', handleReadingMask); // Añade el evento de movimiento del mouse para la máscara de lectura
+        $mask.classList.remove('hidden');
     }
-    else document.removeEventListener('mousemove', handleReadingMask); // Elimina el evento de movimiento del mouse para la máscara de lectura
-    $mask.classList.toggle('hidden');
+    else {
+        document.removeEventListener('mousemove', handleReadingMask); // Elimina el evento de movimiento del mouse para la máscara de lectura
+        $mask.classList.add('hidden');
+    }
 }
 
 const toggleReadingLine = () => {
@@ -102,9 +105,12 @@ const toggleReadingLine = () => {
     if(states.reading_line){
         document.addEventListener('mousemove', handleReadingLine); // Añade el evento de movimiento del mouse para la línea guía
         handleReadingLine({clientY: posYmouse}); // Inicializa la posición de la línea guía al abrirla
+        $line.classList.remove('hidden');
     }
-    else document.removeEventListener('mousemove', handleReadingLine); // Elimina el evento de movimiento del mouse para la línea guía
-    $line.classList.toggle('hidden');
+    else {
+        document.removeEventListener('mousemove', handleReadingLine); // Elimina el evento de movimiento del mouse para la línea guía
+        $line.classList.add('hidden');
+    }
 }
 
 const toggleColorInvert = () =>{
