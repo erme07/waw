@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./css/widget.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js" defer></script>
+    <script src="./js/widget.js" defer></script>
 </head>
 <body>
-    
-    <!-- contenido principal de la pagina -->
+    <!-- pagina de prueba para testear el widget -->
     <header class="main-header">
         <nav class="container navbar flex align-center justify-between">
-            <a href="" class="logo">
-                <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="" class="logo" aria-label="Logo de la página">
+                <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
                     <path d="M13.8744 6.12564L16.5314 3.46859L33.0628 20L16.5314 36.5314L13.8744 33.8744L27.7487 20L13.8744 6.12564Z" fill="#D41C1C"></path>
                     <path d="M1.32248e-06 20L13.0628 6.93718L26.1256 20L13.0628 33.0628L10.4058 30.4058L20.8115 20L13.0628 12.2513L2.65705 22.657L1.32248e-06 20Z" fill="#D41C1C"></path>
@@ -33,28 +33,33 @@
                 </svg>
             </a>
             <ul class="menu flex gap-30">
-                <li><a href="">Caracteristicas</a></li>
-                <li><a href="">Probar</a></li>
-                <li><a href="">Proyecto</a></li>
+                <li><a href="#features">Caracteristicas</a></li>
+                <li><a href="#demo">Probar</a></li>
+                <li><a href="#project">Proyecto</a></li>
             </ul>
+            <button class="button" id="toggleMenu" aria-label="Abrir menú">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
         </nav>
     </header>
     <section class="hero">
         <div class="container flex column align-center justify-center gap-20">
             <h1 class="text-center uppercase">Widget de Accesibilidad Web</h1>
-            <p>Página de prueba</p>
-            <button class="button uppercase">probar</button>
+            <p class="text-center">Mejora la accesibilidad de tu sitio en segundos, sin complicaciones.</p>
+            <button class="button uppercase">Probar</button>
         </div>
     </section>
     <main>
-    
-        <!-- seccion para probar texto -->
-        <section class="section">
+        <section class="section" id="features">
             <div class="container">
                 <h2 class="text-center uupercase">Caracteristicas del widget</h2>
-                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, officiis pariatur rerum corporis quibusdam sunt libero eaque est ullam incidunt quas ipsum itaque adipisci enim neque totam omnis ipsa cupiditate facilis impedit accusantium quo quis quos? Voluptas ad sequi tempore magni delectus totam suscipit, similique reiciendis exercitationem pariatur, veniam iure.</p>
+                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                 <div class="features">
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#text"></use>
                         </svg>
@@ -63,7 +68,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#cursor"></use>
                         </svg>
@@ -72,7 +77,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#greyscale"></use>
                         </svg>
@@ -81,7 +86,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#inverted"></use>
                         </svg>
@@ -91,7 +96,7 @@
                         </div>
                     </div>
 
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#line"></use>
                         </svg>
@@ -100,7 +105,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#mask"></use>
                         </svg>
@@ -109,7 +114,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#voice"></use>
                         </svg>
@@ -118,7 +123,7 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi molestiae deleniti eius aliquam vero hic cupiditate perferendis corrupti eos repellat.</p>
                         </div>
                     </div>
-                    <div class="flex gap-30">
+                    <div class="features__item flex gap-30">
                         <svg>
                             <use href="./assets/icons/options.svg#links"></use>
                         </svg>
@@ -131,7 +136,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="demo">
             <div class="container">
                 <h2 class="text-center">Prueba la lectura de pantalla</h2>
                 <p class="text-center">Haz click sobre el elemento del que deseas que el widget lea el contenido</p>
@@ -161,11 +166,11 @@
             <div class="container">
                 <h2 class="text-center">Prueba los filtros de colores</h2>
                 <p class="text-center">Modifica los colores de la página activando el filtro de "Escala de grises" o "Invertir"</p>
-                <div class="filter-img flex justify-between flex-wrap gap-30">
-                    <img src="./assets/img/img_a.jpg" alt="">
-                    <img src="./assets/img/img_b.jpg" alt="">
-                    <img src="./assets/img/img_c.jpg" alt="">
-                    <img src="./assets/img/img_d.jpg" alt="">
+                <div class="filter flex justify-between flex-wrap gap-30">
+                    <img src="./assets/img/img_a.jpg" alt="Colorida cascada majestuosa en el bosque del parque nacional durante el otoño">
+                    <img src="./assets/img/img_b.jpg" alt="Muelle de madera marrón">
+                    <img src="./assets/img/img_c.jpg" alt="Paisaje de niebla matutina y montañas con globos aerostáticos al amanecer">
+                    <img src="./assets/img/img_d.jpg" alt="Hermoso camino de madera que recorre los impresionantes árboles coloridos en un bosque">
                 </div>
             </div>
         </section>
@@ -174,7 +179,7 @@
                 <h2 class="text-center">Modifica el tamaño de texto</h2>
                 <p class="text-center">Usa los controles para aumentar o disminuir el tamaño de los textos</p>
                 <div class="text-body">
-                    <div class="flex gap-40">
+                    <div class="flex gap-40 type-font">
                         <div class="flex column gap-10">
                             <h3>Texto con font-size relativo</h3>
                             <p>Las tecnologías de lectura de pantalla permiten que personas con discapacidades visuales accedan a contenido web mediante la conversión del texto y la estructura del sitio en salida de voz o braille. Estas herramientas no interpretan lo visual, sino el código HTML y la estructura del DOM, por lo que una web bien construida semánticamente y con atributos de accesibilidad como alt, aria-label o role resulta fundamental. Los encabezados, los formularios etiquetados correctamente y el orden lógico en la navegación son claves para una experiencia fluida. Algunos lectores conocidos son NVDA, JAWS, VoiceOver, TalkBack y Narrator, cada uno con características y comandos propios.</p>
@@ -184,67 +189,80 @@
                             <p class="absolute-font">Desarrollar sitios accesibles no solo cumple con principios de inclusión, sino que mejora la experiencia general para todos los usuarios. Aplicar buenas prácticas como el uso correcto de etiquetas HTML, el diseño compatible con navegación por teclado y el uso responsable de atributos ARIA permite que los lectores de pantalla interpreten correctamente la información. La accesibilidad web no debe considerarse un extra, sino un componente esencial de cualquier desarrollo moderno, asegurando que la información esté disponible para todas las personas, sin importar sus capacidades visuales.</p>
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
         </section>
-
     </main>
-    <footer class="main-footer">
-        <div class="container flex align-center justify-between">
-            <a href="" class="logo flex">
-                <svg viewBox="0 0 202 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.343 2.65705L20 0L40 20L20 40L17.3429 37.3429L34.6859 20L17.343 2.65705Z" fill="#D41C1C"></path>
-                    <path d="M13.8744 6.12564L16.5314 3.46859L33.0628 20L16.5314 36.5314L13.8744 33.8744L27.7487 20L13.8744 6.12564Z" fill="#D41C1C"></path>
-                    <path d="M1.32248e-06 20L13.0628 6.93718L26.1256 20L13.0628 33.0628L10.4058 30.4058L20.8115 20L13.0628 12.2513L2.65705 22.657L1.32248e-06 20Z" fill="#D41C1C"></path>
-                    <path d="M13.0628 13.8744L10.4058 16.5314L13.8744 20L6.93718 26.9372L9.59422 29.5942L19.1885 20L13.0628 13.8744Z" fill="#D41C1C"></path>
-                    <path d="M6.12564 26.1256L3.46859 23.4686L9.56643 17.3708L12.2235 20.0278L6.12564 26.1256Z" fill="#D41C1C"></path>
-                    <path d="M194.405 12.8382C195.692 12.8382 196.842 13.1056 197.852 13.6406C198.882 14.1755 199.685 14.968 200.259 16.0181C200.854 17.0682 201.151 18.3362 201.151 19.8221V29.4808H197.793V20.3273C197.793 18.8612 197.426 17.7418 196.693 16.9691C195.96 16.1766 194.959 15.7803 193.691 15.7803C192.423 15.7803 191.413 16.1766 190.66 16.9691C189.927 17.7418 189.56 18.8612 189.56 20.3273V29.4808H186.202V20.3273C186.202 18.8612 185.836 17.7418 185.103 16.9691C184.37 16.1766 183.369 15.7803 182.101 15.7803C180.833 15.7803 179.823 16.1766 179.07 16.9691C178.337 17.7418 177.97 18.8612 177.97 20.3273V29.4808H174.582V13.1056H177.97V14.9779C178.525 14.3043 179.228 13.7793 180.08 13.4028C180.932 13.0264 181.843 12.8382 182.814 12.8382C184.122 12.8382 185.291 13.1155 186.321 13.6703C187.351 14.225 188.144 15.0275 188.699 16.0775C189.194 15.0869 189.967 14.3043 191.017 13.7297C192.067 13.1353 193.196 12.8382 194.405 12.8382Z" fill="currentColor"></path>
-                    <path d="M171.152 13.1056V29.4807H167.764V27.549C167.229 28.2226 166.526 28.7576 165.654 29.1538C164.802 29.5303 163.891 29.7185 162.92 29.7185C161.632 29.7185 160.473 29.451 159.443 28.9161C158.432 28.3811 157.63 27.5886 157.036 26.5386C156.461 25.4885 156.174 24.2205 156.174 22.7345V13.1056H159.532V22.2293C159.532 23.6954 159.899 24.8248 160.632 25.6173C161.365 26.39 162.365 26.7763 163.633 26.7763C164.901 26.7763 165.902 26.39 166.635 25.6173C167.388 24.8248 167.764 23.6954 167.764 22.2293V13.1056H171.152Z" fill="currentColor"></path>
-                    <path d="M147.431 29.7483C146.143 29.7483 144.984 29.5204 143.954 29.0647C142.943 28.5892 142.141 27.9552 141.547 27.1627C140.952 26.3504 140.635 25.4489 140.596 24.4583H144.103C144.162 25.1517 144.489 25.7362 145.083 26.2117C145.697 26.6674 146.46 26.8952 147.372 26.8952C148.323 26.8952 149.056 26.7169 149.571 26.3603C150.106 25.9839 150.373 25.5083 150.373 24.9338C150.373 24.3196 150.076 23.8639 149.482 23.5667C148.907 23.2695 147.986 22.9426 146.718 22.586C145.489 22.2492 144.489 21.9223 143.716 21.6053C142.943 21.2883 142.27 20.8028 141.695 20.149C141.141 19.4952 140.863 18.6334 140.863 17.5635C140.863 16.6917 141.121 15.8992 141.636 15.186C142.151 14.4529 142.884 13.8783 143.835 13.4623C144.806 13.0462 145.915 12.8382 147.164 12.8382C149.026 12.8382 150.522 13.3137 151.651 14.2647C152.8 15.1959 153.414 16.4738 153.494 18.0984H150.106C150.046 17.3653 149.749 16.7809 149.214 16.345C148.679 15.9091 147.956 15.6912 147.045 15.6912C146.153 15.6912 145.47 15.8596 144.994 16.1964C144.519 16.5332 144.281 16.979 144.281 17.5338C144.281 17.9696 144.439 18.3362 144.756 18.6334C145.073 18.9305 145.46 19.1683 145.915 19.3466C146.371 19.5051 147.045 19.7131 147.936 19.9707C149.125 20.2877 150.096 20.6146 150.849 20.9514C151.621 21.2684 152.285 21.7439 152.84 22.378C153.395 23.012 153.682 23.854 153.702 24.9041C153.702 25.8353 153.444 26.6674 152.929 27.4005C152.414 28.1335 151.681 28.7081 150.73 29.1242C149.799 29.5402 148.699 29.7483 147.431 29.7483Z" fill="currentColor"></path>
-                    <path d="M125.774 15.5129C126.348 14.76 127.131 14.126 128.122 13.6109C129.112 13.0957 130.232 12.8382 131.48 12.8382C132.906 12.8382 134.204 13.1948 135.373 13.908C136.562 14.6015 137.493 15.5822 138.167 16.8502C138.84 18.1182 139.177 19.5745 139.177 21.2189C139.177 22.8634 138.84 24.3394 138.167 25.647C137.493 26.9349 136.562 27.9453 135.373 28.6784C134.204 29.3916 132.906 29.7483 131.48 29.7483C130.232 29.7483 129.122 29.5006 128.151 29.0053C127.18 28.4902 126.388 27.8561 125.774 27.1033V37.2672H122.386V13.1056H125.774V15.5129ZM135.73 21.2189C135.73 20.0896 135.492 19.1188 135.016 18.3064C134.561 17.4743 133.947 16.8502 133.174 16.4342C132.421 15.9983 131.609 15.7803 130.737 15.7803C129.885 15.7803 129.073 15.9983 128.3 16.4342C127.547 16.87 126.933 17.504 126.457 18.3362C126.002 19.1683 125.774 20.149 125.774 21.2783C125.774 22.4077 126.002 23.3983 126.457 24.2502C126.933 25.0824 127.547 25.7164 128.3 26.1523C129.073 26.5881 129.885 26.8061 130.737 26.8061C131.609 26.8061 132.421 26.5881 133.174 26.1523C133.947 25.6966 134.561 25.0428 135.016 24.1908C135.492 23.3389 135.73 22.3482 135.73 21.2189Z" fill="currentColor"></path>
-                    <path d="M117.314 10.9361C116.699 10.9361 116.184 10.7281 115.768 10.312C115.352 9.89598 115.144 9.38085 115.144 8.76665C115.144 8.15246 115.352 7.63733 115.768 7.22127C116.184 6.8052 116.699 6.59717 117.314 6.59717C117.908 6.59717 118.413 6.8052 118.829 7.22127C119.245 7.63733 119.453 8.15246 119.453 8.76665C119.453 9.38085 119.245 9.89598 118.829 10.312C118.413 10.7281 117.908 10.9361 117.314 10.9361ZM118.978 13.1056V29.4808H115.59V13.1056H118.978Z" fill="currentColor"></path>
-                    <path d="M104.781 29.7483C103.236 29.7483 101.839 29.4015 100.591 28.7081C99.3427 27.9948 98.362 27.0042 97.6488 25.7362C96.9355 24.4484 96.5789 22.9624 96.5789 21.2783C96.5789 19.6141 96.9454 18.138 97.6785 16.8502C98.4115 15.5624 99.4121 14.5718 100.68 13.8783C101.948 13.1849 103.365 12.8382 104.93 12.8382C106.495 12.8382 107.912 13.1849 109.18 13.8783C110.448 14.5718 111.448 15.5624 112.181 16.8502C112.914 18.138 113.281 19.6141 113.281 21.2783C113.281 22.9426 112.905 24.4187 112.152 25.7065C111.399 26.9943 110.368 27.9948 109.061 28.7081C107.773 29.4015 106.347 29.7483 104.781 29.7483ZM104.781 26.8061C105.653 26.8061 106.465 26.598 107.218 26.182C107.991 25.7659 108.615 25.1418 109.091 24.3097C109.566 23.4776 109.804 22.4671 109.804 21.2783C109.804 20.0896 109.576 19.0891 109.12 18.2767C108.665 17.4446 108.06 16.8205 107.307 16.4044C106.555 15.9884 105.742 15.7803 104.87 15.7803C103.999 15.7803 103.186 15.9884 102.434 16.4044C101.7 16.8205 101.116 17.4446 100.68 18.2767C100.244 19.0891 100.026 20.0896 100.026 21.2783C100.026 23.0417 100.472 24.4087 101.364 25.3796C102.275 26.3306 103.414 26.8061 104.781 26.8061Z" fill="currentColor"></path>
-                    <path d="M86.8698 29.7483C85.3244 29.7483 83.9276 29.4015 82.6794 28.7081C81.4312 27.9948 80.4505 27.0042 79.7372 25.7362C79.024 24.4484 78.6674 22.9624 78.6674 21.2783C78.6674 19.6141 79.0339 18.138 79.767 16.8502C80.5 15.5624 81.5006 14.5718 82.7686 13.8783C84.0366 13.1849 85.4532 12.8382 87.0184 12.8382C88.5836 12.8382 90.0002 13.1849 91.2682 13.8783C92.5362 14.5718 93.5368 15.5624 94.2698 16.8502C95.0029 18.138 95.3694 19.6141 95.3694 21.2783C95.3694 22.9426 94.993 24.4187 94.2401 25.7065C93.4872 26.9943 92.457 27.9948 91.1493 28.7081C89.8615 29.4015 88.435 29.7483 86.8698 29.7483ZM86.8698 26.8061C87.7416 26.8061 88.5539 26.598 89.3068 26.182C90.0794 25.7659 90.7035 25.1418 91.1791 24.3097C91.6546 23.4776 91.8923 22.4671 91.8923 21.2783C91.8923 20.0896 91.6645 19.0891 91.2088 18.2767C90.7531 17.4446 90.1488 16.8205 89.3959 16.4044C88.643 15.9884 87.8307 15.7803 86.959 15.7803C86.0872 15.7803 85.2749 15.9884 84.522 16.4044C83.7889 16.8205 83.2045 17.4446 82.7686 18.2767C82.3327 19.0891 82.1148 20.0896 82.1148 21.2783C82.1148 23.0417 82.5605 24.4087 83.4521 25.3796C84.3635 26.3306 85.5027 26.8061 86.8698 26.8061Z" fill="currentColor"></path>
-                    <path d="M68.9583 29.7483C67.4129 29.7483 66.0162 29.4015 64.768 28.7081C63.5198 27.9948 62.539 27.0042 61.8258 25.7362C61.1125 24.4484 60.7559 22.9624 60.7559 21.2783C60.7559 19.6141 61.1224 18.138 61.8555 16.8502C62.5886 15.5624 63.5891 14.5718 64.8571 13.8783C66.1251 13.1849 67.5417 12.8382 69.1069 12.8382C70.6721 12.8382 72.0887 13.1849 73.3567 13.8783C74.6247 14.5718 75.6253 15.5624 76.3584 16.8502C77.0914 18.138 77.458 19.6141 77.458 21.2783C77.458 22.9426 77.0815 24.4187 76.3286 25.7065C75.5758 26.9943 74.5455 27.9948 73.2379 28.7081C71.95 29.4015 70.5235 29.7483 68.9583 29.7483ZM68.9583 26.8061C69.8301 26.8061 70.6424 26.598 71.3953 26.182C72.168 25.7659 72.7921 25.1418 73.2676 24.3097C73.7431 23.4776 73.9808 22.4671 73.9808 21.2783C73.9808 20.0896 73.753 19.0891 73.2973 18.2767C72.8416 17.4446 72.2373 16.8205 71.4844 16.4044C70.7316 15.9884 69.9192 15.7803 69.0475 15.7803C68.1757 15.7803 67.3634 15.9884 66.6105 16.4044C65.8775 16.8205 65.293 17.4446 64.8571 18.2767C64.4212 19.0891 64.2033 20.0896 64.2033 21.2783C64.2033 23.0417 64.6491 24.4087 65.5406 25.3796C66.452 26.3306 67.5913 26.8061 68.9583 26.8061Z" fill="currentColor"></path>
-                    <path d="M53.0784 26.7466H60.0624V29.4808H49.6904V8.82607H53.0784V26.7466Z" fill="currentColor"></path>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M89.9944 32.524C90.8502 31.8673 91.4654 30.9466 91.7446 29.9046L95.0194 30.782C94.547 32.5449 93.5062 34.1027 92.0583 35.2137C90.6103 36.3247 88.8363 36.927 87.0112 36.927C85.1861 36.927 83.412 36.3247 81.9641 35.2137C80.5162 34.1027 79.4753 32.5449 79.003 30.782L82.2777 29.9046C82.5569 30.9466 83.1722 31.8673 84.028 32.524C84.8838 33.1807 85.9324 33.5367 87.0112 33.5367C88.0899 33.5367 89.1385 33.1807 89.9944 32.524Z" fill="currentColor"></path>
-                </svg>
-            </a>
-            <nav>
-                <ul class="menu flex gap-20 align-center">
-                    <li><a href="">Primer Elemento</a></li>
-                    <li><a href="">Segundo Elemento</a></li>
-                    <li><a href="">Tercer Elemento</a></li>
-                </ul>
-            </nav>
+    <footer class="main-footer" id="project">
+        <div class="container flex column align-center gap-40">
+            <h2 class="text-center uppercase">Proyecto</h2>
+            <div class="flex flex-wrap gap-20">
+                <div class="flex column gap-20 grow project__item">
+                    <div class="flex column gap-5">
+                        <h3>Nombre</h3>
+                        <p>Widget de Accesibilidad Web (WAW)</p>
+                    </div>
+                    <div class="flex column gap-5">
+                        <h3>Institución</h3>
+                        <p>Universidad Nacional del Oeste (UNO)</p>
+                    </div>
+                </div>
+                    
+                <div class="flex column gap-5 grow project__item">
+                    <h3>Responsables</h3>
+                    <ul class="flex flex-wrap">
+                        <li>Pablo Pandolfo</li>
+                        <li>Andrada Alexander Alexis</li>
+                        <li>Elisey Larco Agustin</li>
+                        <li>Ramirez Walter</li>
+                        <li>Medina Erik</li>
+                        <li>Lobo Santiago</li>
+                        <li>Guzman Alexander</li>
+                    </ul>
+                </div>
+                <div class="flex column gap-5">
+                    <h3>Objetivo</h3>
+                    <p>Desarrollar un widget que permita dar solución al cumplimiento de estándares internacionales de accesibilidad web, proporcionando adaptaciones instantáneas para perfiles de discapacidades habituales.</p>
+                </div>
+                    
+                <div class="flex justify-center grow gap-10">
+                    <a class="" href="#" aria-label="Repositorio de github">
+                        <svg aria-hidden="true">
+                            <use href="./assets/icons/icons.svg#icon-github"></use>
+                        </svg>
+                    </a>
+                    <a class="" href="#" aria-label="Paquete en npm">
+                        <svg aria-hidden="true">
+                            <use href="./assets/icons/icons.svg#icon-npm"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
 
 
     <!-- Boton que muestra/oculta el widget -->
-    <button id="boton-abrir" class="waw-button">
-        <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.691 94.691">
+    <button id="open-button" class="waw-button" aria-label="Abrir el widget de accesibilidad" aria-controls="waw-widget" aria-expanded="false">
+        <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.691 94.691" aria-hidden="true">
             <path d="M41.035,83.61c-11.92,0-21.617-9.697-21.617-21.617c0-7.323,3.771-14.187,9.909-18.158l-2.195-11.429 C15.655,37.799,8.336,49.221,8.336,61.992c0,18.029,14.669,32.699,32.699,32.699c8.829,0,17.336-3.624,23.486-9.975 l-4.729-11.988C55.979,79.355,48.826,83.61,41.035,83.61z"></path>
             <path d="M85.932,86.391L70.962,48.43c-0.666-2.715-3.084-4.615-5.88-4.619L48.974,43.79l-1.126-5.862h17.359 c3.349,0,6.072-2.723,6.072-6.069c0-3.348-2.725-6.071-6.072-6.071H45.515l-1.002-5.218l0.543-0.561 c2.148-2.218,3.331-5.133,3.331-8.207C48.387,5.294,43.093,0,36.584,0c-6.508,0-11.801,5.294-11.801,11.802 c0,4.695,2.785,8.943,7.096,10.821l0.725,0.315l5.392,28.064c0.021,0.098,0.041,0.174,0.062,0.252l0.176,0.606 c0.031,0.087,0.063,0.18,0.099,0.269l0.088,0.201c0.055,0.121,0.104,0.227,0.157,0.329l0.099,0.179 c0.06,0.105,0.125,0.215,0.193,0.319l0.102,0.153c0.074,0.106,0.154,0.213,0.237,0.316l0.092,0.116 c0.093,0.11,0.19,0.216,0.289,0.319l0.077,0.08c0.133,0.135,0.253,0.242,0.376,0.346l0.091,0.081 c0.106,0.086,0.254,0.196,0.406,0.301l0.151,0.095c0.095,0.061,0.201,0.129,0.314,0.19l0.131,0.067 c0.171,0.086,0.271,0.138,0.374,0.184l0.181,0.074c0.139,0.055,0.242,0.094,0.348,0.129l0.207,0.064 c0.123,0.037,0.246,0.066,0.37,0.096l0.185,0.041c0.143,0.027,0.294,0.05,0.446,0.066l0.118,0.018 c0.168,0.017,0.351,0.029,0.536,0.031l0.086-0.002l16.881,0.021l13.771,34.9c0.922,2.334,3.14,3.844,5.649,3.844 c0.759,0,1.509-0.145,2.228-0.428C85.627,93.036,87.16,89.504,85.932,86.391z"></path>
         </svg>
     </button>
 
     <!-- Contenedor del widget de accesibilidad -->
-    <aside id="waw-widget" class="waw">
-        <!-- <div class="waw__overlay"></div> -->
+    <aside id="waw-widget" class="waw" aria-labelledby="waw-title" inert="">
         <!-- Encabezado del widget -->
         <header class="waw__header">
-            <h2>Ajustes de accesibilidad</h2>
+            <h2 id="waw-title">Ajustes de accesibilidad</h2>
             <div class="header-options">
-                <button class="header-options__button header-options__button--small" title="Instrucciones de uso">
+                <button class="header-options__button header-options__button--small" aria-label="Instrucciones de uso">
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-info"></use>
                     </svg>
                 </button>
-                <button class="header-options__button header-options__button--small" data-function="toggle-theme" title="Cambiar tema">
+                <button class="header-options__button header-options__button--small" data-waw-function="toggle-theme" aria-label="Activar tema oscuro">
                     <svg class="light">
                         <use href="./assets/icons/icons.svg#icon-light"></use>
                     </svg>
@@ -252,12 +270,12 @@
                         <use href="./assets/icons/icons.svg#icon-dark"></use>
                     </svg>
                 </button>
-                <button class="header-options__button header-options__button--small" data-function="reset" title="Restablecer ajustes">
+                <button class="header-options__button header-options__button--small" data-waw-function="reset" aria-label="Restablecer ajustes">
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-reset"></use>
                     </svg>
                 </button> 
-                <button id="boton-cerrar" class="header-options__button" title="Cerrar widget">
+                <button id="close-button" class="header-options__button" aria-label="Cerrar widget">
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-close"></use>
                     </svg>
@@ -274,9 +292,9 @@
                     </svg>
                     <span class="opcion__nombre">Tamaño del Texto</span>
                     <div class="opcion__control">
-                        <button id="btn-text-minus" class="opcion__boton" data-function="control-text">-</button>
+                        <button id="btn-text-minus" class="opcion__boton" data-waw-function="control-text" aria-label="Disminuir tamaño de texto">-</button>
                         <input type="range" id="text-slider" class="opcion__slider" min="80" max="150" value="100">
-                        <button id="btn-text-plus" class="opcion__boton" data-function="control-text">+</button>
+                        <button id="btn-text-plus" class="opcion__boton" data-waw-function="control-text" aria-label="Aumentar tamaño de texto">+</button>
                     </div>
                 </div>
                 <button id="btn-big-cursor" class="opcion opcion--cursor"> <!-- Opción "Cursor grande" -->
@@ -356,7 +374,7 @@
                     </span>
                     <span class="opcion__nombre">Resaltar Enlaces</h3>
                 </button>
-                <button class="opcion opcion--reset" data-function="reset"> <!-- Opción "Restablecer ajustes" -->
+                <button class="opcion opcion--reset" data-waw-function="reset"> <!-- Opción "Restablecer ajustes" -->
                     <span class="opcion__nombre">Restablecer Ajustes</span>
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-reset"></use>
@@ -405,13 +423,13 @@
                         </ul>
                     </div>
                     <div class="about__item">
-                        <a class="about__link" href="">
-                            <svg>
+                        <a class="about__link" href="" aria-label="Repositorio en github">
+                            <svg aria-hidden="true">
                                 <use href="./assets/icons/icons.svg#icon-github"></use>
                             </svg>
                         </a>
-                        <a class="about__link" href="">
-                            <svg>
+                        <a class="about__link" href="" aria-label="Paquete en npm">
+                            <svg aria-hidden="true">
                                 <use href="./assets/icons/icons.svg#icon-npm"></use>
                             </svg>
                         </a>
@@ -455,7 +473,6 @@
         <div class="waw-reading-mask__bottom"></div>
     </div>
 
-    <!-- guia de lectura - elemento invisible que se muestra cuando se activa -->
     <div id="guia-lectura" class="waw-reading-line hidden">
         <div class="reading-controls reading-controls--line">
             <span></span>
