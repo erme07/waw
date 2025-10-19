@@ -6,6 +6,7 @@
     <title>WAW - Widget de Accesibilidad Web</title>
     <link rel="stylesheet" href="./css/widget.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="./js/script.js" defer></script>
     <script src="./js/widget.js" defer></script>
 </head>
@@ -258,11 +259,11 @@
         <header class="waw__header">
             <h2 id="waw-title">Ajustes de accesibilidad</h2>
             <div class="header-options">
-                <button class="header-options__button header-options__button--small" aria-label="Instrucciones de uso">
+                <!-- <button class="header-options__button header-options__button--small" aria-label="Instrucciones de uso">
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-info"></use>
                     </svg>
-                </button>
+                </button> -->
                 <button class="header-options__button header-options__button--small" data-waw-function="toggle-theme" aria-label="Activar tema oscuro">
                     <svg class="light">
                         <use href="./assets/icons/icons.svg#icon-light"></use>
@@ -294,7 +295,7 @@
                     <span class="opcion__nombre">Tamaño del Texto</span>
                     <div class="opcion__control">
                         <button id="btn-text-minus" class="opcion__boton" data-waw-function="control-text" aria-label="Disminuir tamaño de texto">-</button>
-                        <input type="range" id="text-slider" class="opcion__slider" min="80" max="150" value="100">
+                        <input type="range" id="text-slider" class="opcion__slider" min="80" max="150" value="100" step="5">
                         <button id="btn-text-plus" class="opcion__boton" data-waw-function="control-text" aria-label="Aumentar tamaño de texto">+</button>
                     </div>
                 </div>
@@ -383,7 +384,7 @@
                 </button>
             </div>
             <!-- Sección "Configuración" -->
-            <details class="accordion" open>
+            <!-- <details class="accordion" open>
                 <summary class="accordion__head">
                     Configuración
                     <svg aria-hidden="true">
@@ -393,7 +394,7 @@
                 <div class="accordion__body">
                     En construcción...
                 </div>
-            </details>
+            </details> -->
             <!-- Sección "Acerca de" -->
             <details class="accordion about">
                 <summary class="accordion__head">
@@ -414,14 +415,14 @@
                     <div class="about__item">
                         <h3>Responsables</h3>
                         <ul class="about__list">
-                            <li>Pablo Pandolfo</li>
+                            <li>Pandolfo Pablo</li>
                             <li>Andrada Alexander Alexis</li>
                             <li>Elisey Larco Agustin</li>
                             <li>Ramirez Walter</li>
                             <li>Medina Erik</li>
                             <li>Lobo Santiago</li>
-                            <li>Guzman Alexander</li>
-                            <li>Abril Ruiz</li>
+                            <li>Guzman Alexis</li>
+                            <li>Ruiz Abril</li>
                         </ul>
                     </div>
                     <div class="about__item">
@@ -453,7 +454,7 @@
     <div id="waw-reading-mask" class="waw-reading-mask hidden">
         <div id="waw-reading-mask__top" class="waw-reading-mask__top"></div>
         <div id="waw-reading-mask__middle" class="waw-reading-mask__middle">
-            <div class="reading-controls">
+            <div class="reading-controls desktop" id="reading-controls-mask">
                 <span></span>
                 <button id="btn-plus-mask" class="reading-controls__button" title="Aumentar tamaño de la máscara">
                     <svg>
@@ -476,7 +477,7 @@
     </div>
 
     <div id="guia-lectura" class="waw-reading-line hidden">
-        <div class="reading-controls reading-controls--line">
+        <div class="reading-controls reading-controls--line desktop" id="reading-controls-line">
             <span></span>
             <button id="btn-close-line" class="reading-controls__button" title="Cerrar guía de lectura">
                 <svg>
