@@ -451,6 +451,9 @@
     pointer-events: none;
     z-index: 1004;
 }
+.waw-reading-mask.mobile{
+    pointer-events: all;
+}
 .waw-reading-mask__top{
     height: calc(50vh - 50px);
     background-color: #000000b5;
@@ -484,6 +487,21 @@
     display: flex;
     justify-content: flex-start;
 }
+.waw-reading-line.mobile{
+    pointer-events: all;
+}
+
+.waw-reading-line.mobile::before{
+    content: '';
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    pointer-events: auto;
+}
+
 /*:::::::::::::::::::::::::::::*/
 
 /* Estilos para los controles en la mascara y guia de lectura*/
@@ -501,7 +519,9 @@
     transition: all 0.5s ease;
     border-radius: 10px 0 0 10px;
 }
-.reading-controls:hover {translate: 0 0;}
+.reading-controls.desktop:hover,
+.reading-controls.active {translate: 0 0;}
+
 .reading-controls span{
     width: 0;
     height: 0;
@@ -518,7 +538,8 @@
     border-right: none;
     border-left: 6px solid white;
 }
-.reading-controls--line:hover {translate: 0 calc(-50% + 3px);}
+.reading-controls--line.desktop:hover,
+.reading-controls--line.active {translate: 0 calc(-50% + 3px);}
 .reading-controls__button{
     width: 40px;
     height: 40px;
