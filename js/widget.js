@@ -75,11 +75,8 @@ const loadStatesFromLocalStorage = () => {
 
 // mascara de lectura
 
-const handleReadingMask = (e) => {
-    if(touchDevice)
-        posYmouse = innerHeight / 2; // En dispositivos táctiles, fija la posición del mouse en el centro de la pantalla
-    else 
-        posYmouse = e.clientY; // Actualiza la posición del mouse
+const updateMaskPosition = (e) => {
+    posYmouse = e.clientY; // Actualiza la posición del mouse
     if(posYmouse <= mask_height / 2)
         $mask_top.style.height = "0px";
     else if(posYmouse >= innerHeight - (mask_height / 2))
@@ -106,15 +103,20 @@ const readingMaskControls = (e)=>{ // Controla botones de la máscara de lectura
 
 const activateReadingMask = () => {
     states.reading_mask = true;
+    if(touchDevice){
+        if(states.reading_line) deactivateReadingLine(); // Desactiva la línea guía si está activa
+        posYmouse = innerHeight / 2; // En dispositivos táctiles, fija la posición del mouse en el centro de la pantalla
+    } 
+    else
+        document.addEventListener('mousemove', updateMaskPosition); // Añade el evento de movimiento del mouse para la máscara de lectura
     updateMaskSize();
-    document.addEventListener('mousemove', handleReadingMask); // Añade el evento de movimiento del mouse para la máscara de lectura
     $mask.classList.remove('hidden');
     $btn_reading_mask.classList.add('active');
 }
 
 const deactivateReadingMask = () => {
     states.reading_mask = false;
-    document.removeEventListener('mousemove', handleReadingMask); // Elimina el evento de movimiento del mouse para la máscara de lectura
+    document.removeEventListener('mousemove', updateMaskPosition); // Elimina el evento de movimiento del mouse para la máscara de lectura
     $mask.classList.add('hidden');
     $mask_controls.classList.remove("active");
     $btn_reading_mask.classList.remove('active');
@@ -128,17 +130,23 @@ const toggleReadingMask = () => {
 
 // linea de guia de lectura
 
-const activateReadingLine = (e) => {
-    
-    document.addEventListener('mousemove', handleReadingLine); // Añade el evento de movimiento del mouse para la línea guía
-    handleReadingLine({clientY: posYmouse}); // Inicializa la posición de la línea guía al abrirla
+const activateReadingLine = () => {
+    states.reading_line = true;
+    if(touchDevice){
+        if(states.reading_mask) deactivateReadingMask(); // Desactiva la máscara de lectura si está activa
+        posY = innerHeight / 2; // En dispositivos táctiles, fija la posición del mouse en el centro de la pantalla
+    } 
+    else{
+        posY = posYmouse
+        document.addEventListener('mousemove', updateReadingLine); // Añade el evento de movimiento del mouse para la línea guía
+    }
+    updateReadingLine({clientY: posY}); // Inicializa la posición de la línea guía al abrirla
     $line.classList.remove('hidden');
     $btn_reading_line.classList.add('active');
-    states.reading_line = true;
 }
 
 const deactivateReadingLine = () => {
-    document.removeEventListener('mousemove', handleReadingLine); // Elimina el evento de movimiento del mouse para la línea guía
+    document.removeEventListener('mousemove', updateReadingLine); // Elimina el evento de movimiento del mouse para la línea guía
     $line.classList.add('hidden');
     $line_controls.classList.remove("active");
     $btn_reading_line.classList.remove('active');
@@ -150,14 +158,8 @@ const toggleReadingLine = () => {
     else activateReadingLine();
 }
 
-const handleReadingLine = (e) => { // Actualiza la posición de la línea guía
-    if(touchDevice){
-        posYmouse = innerHeight / 2; // En dispositivos táctiles, fija la posición del mouse en el centro de la pantalla
-        //$line.style.top = (posYmouse - 4) + 'px'; 
-    }
-    else{
-        posYmouse = e.clientY; // Actualiza la posición del mouse
-    }
+const updateReadingLine = (e) => { // Actualiza la posición de la línea guía
+    posYmouse = e.clientY; // Actualiza la posición del mouse
     $line.style.top = (posYmouse - 4) + 'px'; 
 }
 
@@ -170,6 +172,42 @@ const readingLineControls = (e)=>{ // Controla el boton de cierre de la guía de
         $btn_reading_line.classList.remove('active'); // Desactiva el botón de la guía de lectura
     }
 }
+
+// manejo de gestos táctiles para la máscara y linea de lectura
+
+let startY = 0;
+
+const mask = new Hammer($mask_middle);
+
+mask.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+mask.on("panstart", () => startY = parseFloat($mask_top.style.height))
+
+mask.on("panmove", (ev) => {
+    const newY = startY + ev.deltaY;
+    $mask_top.style.height = `${newY}px`;
+});
+
+mask.on("swipe", (ev) => {
+    if (ev.direction === Hammer.DIRECTION_LEFT) $mask_controls.classList.add("active");
+    if (ev.direction === Hammer.DIRECTION_RIGHT) $mask_controls.classList.remove("active");
+});
+
+const line = new Hammer($line);
+line.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
+
+line.on("panstart", () => startY = parseFloat($line.style.top))
+line.on("panmove", (ev) => {
+    const newY = startY + ev.deltaY;
+    $line.style.top = `${newY - 4}px`;
+});
+line.on("panend", () => startY = parseFloat($line.style.top));
+
+line.on("swipe", (ev) => {
+    if (ev.direction === Hammer.DIRECTION_RIGHT) $line_controls.classList.add("active");
+    if (ev.direction === Hammer.DIRECTION_LEFT) $line_controls.classList.remove("active");
+});
+
 
 // inversor de colores
 
@@ -304,17 +342,8 @@ const toggleVoiceReading = () =>{
     }
 }
 
-const optionsButtons = (target) => { //controla que función debe aplicarse según el boton presionado
-    target.closest('.opcion').classList.toggle('active');
-    if(target.closest("#btn-reading-line")) toggleReadingLine();
-    else if(target.closest("#btn-reading-mask")) toggleReadingMask();
-    else if(target.closest("#btn-big-cursor")) toggleBigCursor();
-    else if(target.closest("#btn-color-invert")) toggleColorInvert();
-    else if(target.closest("#btn-greyscale")) toggleGrayscale();
-    else if(target.closest("#btn-highlight-links")) toggleHighlightLinks();
-    else if(target.closest("#btn-voice-reading")) toggleVoiceReading();
-    
-}
+
+// reiniciar todas las funciones del widget
 
 const resetWidgetFunctions = () => {
     deactivateBigCursor();
@@ -396,57 +425,26 @@ const tag_list={
     i: ""
 }
 
-// manejo de gestos táctiles para la máscara y linea de lectura
 
-let startY = 0;
-
-const mask = new Hammer($mask_middle);
-
-mask.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
-
-mask.on("panstart", () => startY = parseFloat($mask_top.style.height))
-
-mask.on("panmove", (ev) => {
-    const newY = startY + ev.deltaY;
-    $mask_top.style.height = `${newY}px`;
-});
-
-mask.on("swipe", (ev) => {
-    if (ev.direction === Hammer.DIRECTION_LEFT) $mask_controls.classList.add("active");
-    if (ev.direction === Hammer.DIRECTION_RIGHT) $mask_controls.classList.remove("active");
-});
-
-const line = new Hammer($line);
-line.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
-
-
-line.on("panstart", () => startY = parseFloat($line.style.top))
-line.on("panmove", (ev) => {
-    const newY = startY + ev.deltaY;
-    $line.style.top = `${newY - 4}px`;
-    console.log(startY, ev.deltaY, newY);
-});
-line.on("panend", () => startY = parseFloat($line.style.top));
-    
-
-
-line.on("swipe", (ev) => {
-    if (ev.direction === Hammer.DIRECTION_RIGHT) $line_controls.classList.add("active");
-    if (ev.direction === Hammer.DIRECTION_LEFT) $line_controls.classList.remove("active");
-});
 
 // ::::::::::::::::::::::::
 
 document.addEventListener("click", (e) => {
-    //posYmouse = e.clientY; // Actualiza la posición del mouse al hacer clic
-    if(e.target.closest('.opcion') && !e.target.closest('.opcion--reset') && !e.target.closest('.opcion--texto')) optionsButtons(e.target);
-    else if(widget_open && !$widget.contains(e.target)) toggleWidget() // cierra el widget al hacer click fuera del mismo
+    posYmouse = e.clientY; // Actualiza la posición del mouse
+    if(e.target.closest("#btn-reading-line")) toggleReadingLine();
+    else if(e.target.closest("#btn-reading-mask")) toggleReadingMask();
+    else if(e.target.closest("#btn-big-cursor")) toggleBigCursor();
+    else if(e.target.closest("#btn-color-invert")) toggleColorInvert();
+    else if(e.target.closest("#btn-greyscale")) toggleGrayscale();
+    else if(e.target.closest("#btn-highlight-links")) toggleHighlightLinks();
+    else if(e.target.closest("#btn-voice-reading")) toggleVoiceReading();
     else if(e.target.closest("#open-button") || e.target.closest("#close-button")) toggleWidget(); 
     else if(e.target.closest("[data-waw-function='control-text']")) controlText(e.target)
     else if(e.target.closest('[data-waw-function="reset"]')) resetWidgetFunctions();
     else if(e.target.closest('[data-waw-function="toggle-theme"]')) toggleTheme();
     else if(e.target.closest('#reading-controls-mask')) readingMaskControls(e);
     else if(e.target.closest('#reading-controls-line')) readingLineControls(e);
+    else if(widget_open && !$widget.contains(e.target)) toggleWidget() // cierra el widget al hacer click fuera del mismo
 
     updateStatesToLocalStorage();
 
@@ -459,7 +457,7 @@ document.addEventListener("click", (e) => {
             readElement(generateDescription(e.target))
         }
     }
-    console.log(e.target)
+    //console.log(e.target)
     // ::::::::::::::::::::::::
 });
 
