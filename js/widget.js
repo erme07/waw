@@ -68,6 +68,7 @@ const loadStatesFromLocalStorage = () => {
     if(states.highlight_links) activateHighlightLinks();
     if(states.reading_line) activateReadingLine();
     if(states.reading_mask) activateReadingMask();
+    if(states.voice_reading) activateVoiceReading();
     document.documentElement.style.fontSize = states.text_size + '%';
     $text_slider.value = states.text_size;
 }
@@ -292,6 +293,11 @@ const controlText = (btn) => {
     document.documentElement.style.fontSize = states.text_size + '%';
 }
 
+const updateFontSize = (e) => {
+    states.text_size = Number(e.target.value);
+    document.documentElement.style.fontSize = states.text_size + '%';
+}
+
 // detección de dispositivo tactil o escritorio
 
 const isMobile = () => {
@@ -316,33 +322,6 @@ const isMobile = () => {
 // ================================================
 
 
-let focoPorTeclado = false;
-
-const focusByTab = (e) =>{if (e.key === 'Tab') focoPorTeclado = true;}
-const focusByMousedown = () => focoPorTeclado = false
-const handleFocusIn = (e) =>{
-    if (!focoPorTeclado) return;
-    readElement(generateDescription(e.target))
-}
-
-const toggleVoiceReading = () =>{
-    states.voice_reading = !states.voice_reading
-    if(states.voice_reading) {
-        document.addEventListener('keydown', focusByTab);
-        document.addEventListener('mousedown', focusByMousedown);
-        document.addEventListener('focusin', handleFocusIn);
-        readElement("lectura de pantalla activada");
-    }
-    else{
-        document.removeEventListener('keydown', focusByTab);
-        document.removeEventListener('mousedown', focusByMousedown);
-        document.removeEventListener('focusin', handleFocusIn);
-        if(temporal_element) temporal_element.classList.remove("read-text");
-        readElement("lectura de pantalla desactivada");
-    }
-}
-
-
 // reiniciar todas las funciones del widget
 
 const resetWidgetFunctions = () => {
@@ -352,16 +331,21 @@ const resetWidgetFunctions = () => {
     deactivateHighlightLinks();
     deactivateReadingLine();
     deactivateReadingMask();
+    deactivateVoiceReading();
     states.text_size = 100;
     $text_slider.value = states.text_size;
     document.documentElement.style.fontSize = states.text_size + '%';
-    if(temporal_element) temporal_element.classList.remove("read-text");
+    if(elementToRead) elementToRead.classList.remove("read-text");
 }
+
+// manejo del tema oscuro
 
 const toggleTheme = () => {
     document.documentElement.classList.toggle("dark-theme")
     states.dark_theme = !states.dark_theme
 }
+
+// abrir/cerrar el widget
 
 const toggleWidget = () => {
     $widget.classList.toggle('open');
@@ -385,7 +369,41 @@ const toggleWidget = () => {
 let voice_reading_speed = 0.8
 let voice_reading_lang = "es-ES"
 
-let temporal_element = null;
+let elementToRead = null;
+let focoPorTeclado = false;
+
+const focusByTab = (e) =>{if (e.key === 'Tab') focoPorTeclado = true;}
+const focusByMousedown = () => focoPorTeclado = false
+const handleFocusIn = (e) =>{
+    if (!focoPorTeclado) return;
+    readElement(generateDescription(e.target))
+}
+
+const toggleVoiceReading = () =>{
+    if(states.voice_reading) deactivateVoiceReading();
+    else activateVoiceReading();
+}
+
+const activateVoiceReading = () =>{
+    states.voice_reading = true;
+    document.addEventListener('keydown', focusByTab);
+    document.addEventListener('mousedown', focusByMousedown);
+    document.addEventListener('focusin', handleFocusIn);
+    $btn_voice_reading.classList.add('active');
+    readElement("lectura de pantalla activada");
+
+}
+
+const deactivateVoiceReading = () =>{
+    states.voice_reading = false;
+    document.removeEventListener('keydown', focusByTab);
+    document.removeEventListener('mousedown', focusByMousedown);
+    document.removeEventListener('focusin', handleFocusIn);
+    $btn_voice_reading.classList.remove('active');
+    if(elementToRead) elementToRead.classList.remove("read-text");
+    elementToRead = null;
+    readElement("lectura de pantalla desactivada");
+}
 
 const generateDescription = (target) => {
     let description = '';
@@ -410,7 +428,17 @@ const readElement = (message) => {
     speechSynthesis.speak(text);
 }
 
-const tag_list={
+const selectElementToRead = (element) => {
+    if(element.tagName.toLowerCase() in tag_list){
+        if(element.closest(".opcion")) return; // evita leer los elementos del widget
+        if(elementToRead) elementToRead.classList.remove("read-text");
+        elementToRead = element
+        elementToRead.classList.add("read-text");
+        readElement(generateDescription(element))
+    }
+}
+
+const tag_list={ //lista de etiquetas comunes para la lectura de pantalla
     p: "Párrafo",
     h1: "Título Nivel 1",
     h2: "Título Nivel 2",
@@ -447,24 +475,12 @@ document.addEventListener("click", (e) => {
     else if(widget_open && !$widget.contains(e.target)) toggleWidget() // cierra el widget al hacer click fuera del mismo
 
     updateStatesToLocalStorage();
-
     //lectura de pantalla (en desarrollo)
-    if(states.voice_reading){ 
-        if(e.target.tagName.toLowerCase() in tag_list){
-            if(temporal_element) temporal_element.classList.remove("read-text");
-            temporal_element = e.target
-            temporal_element.classList.add("read-text");
-            readElement(generateDescription(e.target))
-        }
-    }
-    //console.log(e.target)
-    // ::::::::::::::::::::::::
+    if(states.voice_reading) selectElementToRead(e.target);
+    
 });
 
-$text_slider.addEventListener('input', (e) => {
-    states.text_size = Number(e.target.value);
-    document.documentElement.style.fontSize = states.text_size + '%';
-});
+$text_slider.addEventListener('input', updateFontSize);
 
 isMobile();
 saveStatesToLocalStorage();
