@@ -18,4 +18,7 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
   - Funciona con elementos enfocados mediante click o navegación por teclado
   - Indica la etiqueta del elemento enfocado
   - Lee el contenido del elemento
+- Apto para Dislexia
+- Ocultar imagenes
+- Detener Animaciones
 - Tema claro y oscuro
