@@ -2,8 +2,7 @@
 
 La accesibilidad web es fundamental para garantizar que todas las personas, independientemente de sus capacidades físicas, sensoriales, cognitivas o tecnológicas, puedan navegar y utilizar sitios web de manera equitativa
 
-[PROBAR](https://erme07.github.io/waw/)
-https://github.com/erme07/waw/tree/Alexis
+[PROBAR](https://erme07.github.io/waw/tree/Alexis)
 
 ## Características
 
