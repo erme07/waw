@@ -179,6 +179,7 @@
         "op1 op1 op2"
         "op3 op4 op5"
         "op6 op7 op8"
+        "op10 op11 op12"
         "op9 op9 op9";
 }
 
@@ -191,7 +192,9 @@
 .opcion--mascara { grid-area: op7; }
 .opcion--link { grid-area: op8; }
 .opcion--reset { grid-area:op9;}
-
+.opcion--Dislexia { grid-area: op10;}
+.opcion--OcultImagen { grid-area: op11;}
+.opcion--detenerAnimaciones { grid-area: op12;}
 
 .opcion{
     border: 3px solid transparent;
@@ -604,7 +607,8 @@
         "op2 op3" 
         "op4 op5"
         "op6 op7"
-        "op8 op8"
+        "op8 op10"
+        "op11 op12"
         "op9 op9";
     }
     .about__list li {flex-basis: 100%;}
@@ -657,4 +661,33 @@ html{
 .read-text{
     outline: 5px dashed green;
     outline-offset: 5px;
+}
+
+/* Sin animaciones */
+
+.WAWNoAnimations * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Font dislexia */
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/OpenDyslexicAlta-Bold.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/OpenDyslexicAlta-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html.WAWDyslexicFont, html.WAWDyslexicFont body, html.WAWDyslexicFont * {
+  font-family: "OpenDyslexic", "Lexend", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
 }

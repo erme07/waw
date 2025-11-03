@@ -25,6 +25,10 @@ const $btn_greyscale = document.getElementById('btn-greyscale'); // botón para 
 const $btn_highlight_links = document.getElementById('btn-highlight-links'); // botón para activar/desactivar el resaltado de enlaces
 const $btn_voice_reading = document.getElementById('btn-voice-reading'); // botón para activar/desactivar la lectura por voz
 
+const $btn_AptoDislexia = document.getElementById('btn-AptoDislexia'); // botón para activar fuente apta para dislexia
+const $btn_detAnimaciones = document.getElementById('btn-detAnimaciones'); //boton para activar/desactivar animaciones
+const $btn_oculImag = document.getElementById('btn-oculImag'); // botón para ocultar imágenes
+
 let mask_height = 100;  // altura inicial de la máscara de lectura
 let posYmouse = innerHeight / 2; // posición del mouse en el eje Y - para la máscara y linea de lectura
 
@@ -46,7 +50,11 @@ const states = {
     highlight_links: false, // estado del resaltado de enlaces
     voice_reading: false, // estado de la lectura por voz
     dark_theme: false, // estado del tema oscuro
-    text_size: 100 // tamaño del texto
+    text_size: 100, // tamaño del texto
+
+    dyslexia_font: false,
+    hide_images: false,
+    no_animations: false
 }
 
 // almacenamiento en local de los estados de ajustes de accesibilidad
@@ -69,10 +77,228 @@ const loadStatesFromLocalStorage = () => {
     if(states.reading_line) activateReadingLine();
     if(states.reading_mask) activateReadingMask();
     if(states.voice_reading) activateVoiceReading();
+
+    if(states.dyslexia_font) activateDyslexiaFont();
+    if(states.no_animations) activateNoAnimations();
+    if(states.hide_images) activateHideImages();
     document.documentElement.style.fontSize = states.text_size + '%';
     $text_slider.value = states.text_size;
 }
+///////////////////////////////////////////////7
+//Dislexia font
+const activateDyslexiaFont = () => {
+    document.documentElement.classList.add('WAWDyslexicFont');
+    if ($btn_AptoDislexia) $btn_AptoDislexia.classList.add('active');
+    states.dyslexia_font = true;
+}
 
+const deactivateDyslexiaFont = () => {
+    document.documentElement.classList.remove('WAWDyslexicFont');
+    if ($btn_AptoDislexia) $btn_AptoDislexia.classList.remove('active');
+    states.dyslexia_font = false;
+}
+
+const toggleDyslexiaFont = () => {
+    if (states.dyslexia_font) deactivateDyslexiaFont();
+    else activateDyslexiaFont();
+}
+
+////////////////////////////////////////////////
+//detener animaciones (GIFs y videos)
+const activateNoAnimations = () => {
+  document.documentElement.classList.add('WAWNoAnimations');
+  $btn_detAnimaciones.classList.add('active');
+  states.no_animations = true;
+
+  pauseAllVideos();
+  replaceGifsWithCanvas();
+}
+const deactivateNoAnimations = () => {
+  document.documentElement.classList.remove('WAWNoAnimations');
+  $btn_detAnimaciones.classList.remove('active');
+  states.no_animations = false;
+
+  restoreGifs();
+  resumeAllVideos();
+}
+
+const toggleNoAnimations = () => {
+  if (states.no_animations) {
+    deactivateNoAnimations();
+  } else {
+    activateNoAnimations();
+    }
+    }
+    
+let _waw_replacedGifs = [];
+let _waw_videoStates = []; 
+
+const pauseAllVideos = () => {
+    _waw_videoStates = [];
+    document.querySelectorAll('video').forEach(v => {
+    try {
+      const wasPlaying = !!(v.currentTime > 0 && !v.paused && !v.ended && v.readyState > 2);
+      _waw_videoStates.push({ video: v, wasPlaying });
+      v.pause();
+    } catch (err) { }
+  });
+}
+
+const resumeAllVideos = () => {
+    _waw_videoStates.forEach(({ video, wasPlaying }) => {
+    try {
+      if (wasPlaying) video.play().catch(()=>{});
+    } catch (err) {}
+  });
+  _waw_videoStates = [];
+}
+
+const replaceGifsWithCanvas = () => {
+  _waw_replacedGifs = [];
+  const imgs = Array.from(document.querySelectorAll('img'));
+  imgs.forEach(img => {
+    const src = img.src || '';
+    if (!/\.gif(\?.*)?$/i.test(src)) return;
+    if (img.dataset.wawGifReplaced) return;
+
+    const cs = getComputedStyle(img);
+
+    const canvas = document.createElement('canvas');
+    canvas.className = (img.className ? img.className + ' ' : '') + 'waw-gif-placeholder';
+    canvas.style.cssText = img.getAttribute('style') || '';
+    canvas.style.display = cs.display;
+    canvas.style.verticalAlign = cs.verticalAlign;
+    
+    if (cs.getPropertyValue('max-width') && cs.getPropertyValue('max-width') !== 'none') canvas.style.maxWidth = cs.getPropertyValue('max-width');
+    if (cs.getPropertyValue('max-height') && cs.getPropertyValue('max-height') !== 'none') canvas.style.maxHeight = cs.getPropertyValue('max-height');
+  
+    const objectFit = cs.getPropertyValue('object-fit');
+    if (objectFit) canvas.style.objectFit = objectFit;
+
+    canvas.style.width = img.style.width || cs.width;
+    canvas.style.height = img.style.height || cs.height;
+
+    const naturalW = img.naturalWidth || parseInt(cs.width) || 100;
+    const naturalH = img.naturalHeight || parseInt(cs.height) || 100;
+    canvas.width = naturalW;
+    canvas.height = naturalH;
+
+    const ctx = canvas.getContext('2d');
+
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    let drawn = false;
+    image.onload = () => {
+      try {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        drawn = true;
+      } catch (err) {
+        drawn = false;
+      }
+    };
+    image.onerror = () => { drawn = false; };
+
+    image.src = src;
+
+    setTimeout(() => {
+      const parent = img.parentNode;
+      if (!parent) return;
+
+      if (drawn) {
+        img.dataset.wawGifReplaced = '1';
+        img.dataset.wawGifOrigStyle = img.getAttribute('style') || '';
+        img.dataset.wawGifOrigInlineWidth = img.getAttribute('width') || '';
+        img.dataset.wawGifOrigInlineHeight = img.getAttribute('height') || '';
+        parent.replaceChild(canvas, img);
+        _waw_replacedGifs.push({ original: img, canvas });
+      } else {
+        img.dataset.wawGifCouldNotFreeze = '1';
+        img.classList.add('waw-gif-could-not-freeze');
+      }
+    }, 60);
+  });
+}
+
+const restoreGifs = () => {
+  if (!Array.isArray(_waw_replacedGifs) || _waw_replacedGifs.length === 0) return;
+  _waw_replacedGifs.forEach(entry => {
+    if (!entry) return;
+    const { original, canvas } = entry;
+    if (!original || !canvas) return;
+    try {
+      if (canvas.parentNode) canvas.parentNode.replaceChild(original, canvas);
+      try {
+        if (original.dataset.wawGifOrigStyle !== undefined) {
+          if (original.dataset.wawGifOrigStyle) original.setAttribute('style', original.dataset.wawGifOrigStyle);
+          else original.removeAttribute('style');
+        }
+        if (original.dataset.wawGifOrigInlineWidth) original.setAttribute('width', original.dataset.wawGifOrigInlineWidth);
+        else original.removeAttribute('width');
+        if (original.dataset.wawGifOrigInlineHeight) original.setAttribute('height', original.dataset.wawGifOrigInlineHeight);
+        else original.removeAttribute('height');
+      } catch (e) { }
+      delete original.dataset.wawGifReplaced;
+      delete original.dataset.wawGifOrigStyle;
+      delete original.dataset.wawGifOrigInlineWidth;
+      delete original.dataset.wawGifOrigInlineHeight;
+    } catch (e) {
+    }
+  });
+  _waw_replacedGifs = [];
+
+  document.querySelectorAll('img[data-waw-gif-could-not-freeze="1"]').forEach(img => {
+    img.classList.remove('waw-gif-could-not-freeze');
+    delete img.dataset.wawGifCouldNotFreeze;
+  });
+}
+
+
+
+////////////////////////////////////////////////////
+//ocultar imagenes
+let _waw_hiddenImages = []; 
+
+const hideAllImages = () => {
+  _waw_hiddenImages = [];
+  const els = Array.from(document.querySelectorAll('img, picture, canvas.waw-gif-placeholder'));
+  els.forEach(el => {
+    if (el.dataset.wawHidden) return;
+    el.dataset.wawOrigDisplay = el.style.display || '';
+    el.style.display = 'none';
+    el.dataset.wawHidden = '1';
+    _waw_hiddenImages.push(el);
+  });
+}
+
+const restoreAllImages = () => {
+  _waw_hiddenImages.forEach(el => {
+    try {
+      el.style.display = el.dataset.wawOrigDisplay || '';
+      delete el.dataset.wawHidden;
+      delete el.dataset.wawOrigDisplay;
+    } catch (e) { }
+  });
+  _waw_hiddenImages = [];
+}
+
+const activateHideImages = () => {
+  if ($btn_oculImag) $btn_oculImag.classList.add('active');
+  states.hide_images = true;
+  hideAllImages();
+}
+
+const deactivateHideImages = () => {
+  if ($btn_oculImag) $btn_oculImag.classList.remove('active');
+  states.hide_images = false;
+  restoreAllImages();
+}
+
+const toggleHideImages = () => {
+  if (states.hide_images) deactivateHideImages();
+  else activateHideImages();
+}
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 // mascara de lectura
 
@@ -332,6 +558,11 @@ const resetWidgetFunctions = () => {
     deactivateReadingLine();
     deactivateReadingMask();
     deactivateVoiceReading();
+
+    deactivateDyslexiaFont();
+    deactivateNoAnimations();
+    deactivateHideImages();
+
     states.text_size = 100;
     $text_slider.value = states.text_size;
     document.documentElement.style.fontSize = states.text_size + '%';
@@ -466,6 +697,11 @@ document.addEventListener("click", (e) => {
     else if(e.target.closest("#btn-greyscale")) toggleGrayscale();
     else if(e.target.closest("#btn-highlight-links")) toggleHighlightLinks();
     else if(e.target.closest("#btn-voice-reading")) toggleVoiceReading();
+
+    else if(e.target.closest("#btn-AptoDislexia")) toggleDyslexiaFont();
+    else if(e.target.closest('#btn-detAnimaciones')) toggleNoAnimations();
+    else if(e.target.closest('#btn-oculImag')) toggleHideImages();
+
     else if(e.target.closest("#open-button") || e.target.closest("#close-button")) toggleWidget(); 
     else if(e.target.closest("[data-waw-function='control-text']")) controlText(e.target)
     else if(e.target.closest('[data-waw-function="reset"]')) resetWidgetFunctions();
