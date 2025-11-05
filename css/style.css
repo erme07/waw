@@ -184,7 +184,8 @@ a {color: #d41c1c;}
 }
 
 .filter {margin-top: 40px;}
-.filter img{
+.filter img, 
+.filter canvas{
     width: calc(50% - 15px);
     max-width: 560px;
     height: auto;

@@ -172,6 +172,8 @@
                     <img src="./assets/img/img_b.jpg" alt="Muelle de madera marrón">
                     <img src="./assets/img/img_c.jpg" alt="Paisaje de niebla matutina y montañas con globos aerostáticos al amanecer">
                     <img src="./assets/img/img_d.jpg" alt="Hermoso camino de madera que recorre los impresionantes árboles coloridos en un bosque">
+                    <img src="./assets/img/gif1.gif" alt="gif">
+                    <img src="./assets/img/gif32.gif" alt="gif 2">
                 </div>
             </div>
         </section>
@@ -288,7 +290,7 @@
         <section class="waw__body">
             <!-- Grid con las opciones de accesibilidad -->
             <div class="grid">
-                <div class="opcion opcion--texto"> <!-- Opción "Tamaño del texto" -->
+                <!-- <div class="opcion opcion--texto">  Opción "Tamaño del texto"
                     <svg class="opcion__icono">
                         <use href="./assets/icons/options.svg#text"></use>
                     </svg>
@@ -298,29 +300,60 @@
                         <input type="range" id="text-slider" class="opcion__slider" min="80" max="150" value="100" step="5">
                         <button id="btn-text-plus" class="opcion__boton" data-waw-function="control-text" aria-label="Aumentar tamaño de texto">+</button>
                     </div>
-                </div>
-                <button id="btn-big-cursor" class="opcion opcion--cursor"> <!-- Opción "Cursor grande" -->
+                </div> -->
+                <button id="btn-fontsize" class="opcion opcion--texto"> <!-- Opción "Resaltar enlaces" -->
                     <svg class="opcion__icono">
-                        <use href="./assets/icons/options.svg#cursor"></use>
+                        <use href="./assets/icons/options.svg#text"></use>
                     </svg>
                     <span class="opcion__status">
                         <svg>
                             <use href="./assets/icons/icons.svg#icon-check"></use>
                         </svg>
                     </span>
-                    <span class="opcion__nombre">Cursor Grande</span>
+                    <span class="opcion__nombre">Tamaño del Texto</span>
+                    <div class="progress" id="fontsize-levels">
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                    </div>
                 </button>
-                <button id="btn-voice-reading" class="opcion opcion--narrador"> <!-- Opción "Texto a voz" -->
+                <button id="btn-lineheight" class="opcion opcion--lineheight"> <!-- Opción "Resaltar enlaces" -->
                     <svg class="opcion__icono">
-                        <use href="./assets/icons/options.svg#voice"></use>
+                        <use href="./assets/icons/options.svg#lineheight"></use>
                     </svg>
                     <span class="opcion__status">
                         <svg>
                             <use href="./assets/icons/icons.svg#icon-check"></use>
                         </svg>
                     </span>
-                    <span class="opcion__nombre">Lector de Pantalla</span>
+                    <span class="opcion__nombre">Altura de Linea</span>
+                    <div class="progress" id="lineheight-levels">
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                    </div>
                 </button>
+                <button id="btn-letterspacing" class="opcion opcion--letterspacing"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#letterSpacing"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Espaciado de Texto</span>
+                    <div class="progress" id="letterSpacing-levels">
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                        <span class="progress__item"></span>
+                    </div>
+                </button>
+
                 <button id="btn-color-invert" class="opcion opcion--invertir"> <!-- Opción "Invertir color" -->
                     <svg class="opcion__icono">
                         <use href="./assets/icons/options.svg#inverted"></use>
@@ -343,6 +376,18 @@
                     </span>
                     <span class="opcion__nombre">Escala de Grises</span>
                 </button>
+                <button id="btn-big-cursor" class="opcion opcion--cursor"> <!-- Opción "Cursor grande" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#cursor"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Cursor Grande</span>
+                </button>
+                
                 <button id="btn-reading-line" class="opcion opcion--guia"> <!-- Opción "Guia de lectura" -->
                     <svg class="opcion__icono">
                         <use href="./assets/icons/options.svg#line"></use>
@@ -365,6 +410,29 @@
                     </span>
                     <span class="opcion__nombre">Mascara de Lectura</span>
                 </button>
+                <button id="btn-voice-reading" class="opcion opcion--narrador"> <!-- Opción "Texto a voz" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#voice"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Lector de Pantalla</span>
+                </button>
+                
+                <button id="btn-hide-img" class="opcion opcion--hideimg"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#noimage"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Ocultar Imagenes</span>
+                </button>
                 <button id="btn-highlight-links" class="opcion opcion--link"> <!-- Opción "Resaltar enlaces" -->
                     <svg class="opcion__icono">
                         <use href="./assets/icons/options.svg#links"></use>
@@ -374,17 +442,64 @@
                             <use href="./assets/icons/icons.svg#icon-check"></use>
                         </svg>
                     </span>
-                    <span class="opcion__nombre">Resaltar Enlaces</h3>
+                    <span class="opcion__nombre">Resaltar Enlaces</span>
                 </button>
+                <button id="btn-highlight-headers" class="opcion opcion--headers"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#headers"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Resaltar Encabezados</span>
+                </button>
+                
+                <button id="btn-apto-dislexia" class="opcion opcion--dyslexic"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#dyslexia"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Apto Para Dislexia</span>
+                </button>
+                <button id="btn-animations" class="opcion opcion--animation"> <!-- Opción "Resaltar enlaces" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#stopAnimation"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Detener Animaciones</span>
+                </button>
+                <button id="btn-mute-sound" class="opcion opcion--mute"> <!-- Opción "mute" -->
+                    <svg class="opcion__icono">
+                        <use href="./assets/icons/options.svg#mute"></use>
+                    </svg>
+                    <span class="opcion__status">
+                        <svg>
+                            <use href="./assets/icons/icons.svg#icon-check"></use>
+                        </svg>
+                    </span>
+                    <span class="opcion__nombre">Silenciar Sonidos</span>
+                </button>
+
                 <button class="opcion opcion--reset" data-waw-function="reset"> <!-- Opción "Restablecer ajustes" -->
                     <span class="opcion__nombre">Restablecer Ajustes</span>
                     <svg>
                         <use href="./assets/icons/icons.svg#icon-reset"></use>
                     </svg>
                 </button>
+
             </div>
             <!-- Sección "Configuración" -->
-            <!-- <details class="accordion" open>
+            <details class="accordion setting" open>
                 <summary class="accordion__head">
                     Configuración
                     <svg aria-hidden="true">
@@ -392,9 +507,141 @@
                     </svg>
                 </summary>
                 <div class="accordion__body">
-                    En construcción...
+                    <div class="setting__item">
+                        <div class="setting__tittle">
+                            <h3>Posicion del widget</h3>
+                        </div>
+                        <label for="widget-pos-left" class="setting__label">
+                            Izquierda
+                            <input type="radio" name="waw-widget-position" id="widget-pos-left" value="left">
+                        </label>
+                        <label for="widget-pos-right" class="setting__label">
+                            Derecha
+                            <input type="radio" name="waw-widget-position" id="widget-pos-right" value="right" checked>
+                        </label>
+                    </div>
+                    <div class="setting__item">
+                        <div class="setting__tittle">
+                            <h3>Guia de Lectura</h3>
+                        </div>
+                        <div class="setting__value">
+                            <h4>Opacidad</h4>
+                            <label for="line-opacity-null" class="setting__label">
+                                Nula
+                                <input type="radio" name="waw-line-opacity" id="line-opacity-null" value="0">
+                            </label>
+                            <label for="line-opacity-low" class="setting__label">
+                                Baja
+                                <input type="radio" name="waw-line-opacity" id="line-opacity-low" value="0.4">
+                            </label>
+                            <label for="line-opacity-medium" class="setting__label">
+                                Media
+                                <input type="radio" name="waw-line-opacity" id="line-opacity-medium" value="0.6" checked>
+                            </label>
+                            <label for="line-opacity-high" class="setting__label">
+                                Alta
+                                <input type="radio" name="waw-line-opacity" id="line-opacity-high" value="0.8">
+                            </label>
+                            
+                        </div>
+                        <div class="setting__value">
+                            <h4>Grosor</h4>
+                            <label for="mask-weight-low" class="setting__label">
+                                Pequeño
+                                <input type="radio" name="waw-line-weight" id="mask-weight-low" value="4">
+                            </label>
+                            <label for="mask-weight-medium" class="setting__label">
+                                Mediano
+                                <input type="radio" name="waw-line-weight" id="mask-weight-medium" value="10" checked>
+                            </label>
+                            <label for="mask-weight-high" class="setting__label">
+                                Grande
+                                <input type="radio" name="waw-line-weight" id="mask-weight-high" value="20">
+                            </label>
+                        </div>
+                        <div class="setting__value">
+                            <h4>Color</h4>
+                            <label class="box-color box-color--green" for="box-color-green" >
+                                <input type="radio" name="waw-line-color" id="box-color-green" value="#1cbe00" checked>
+                            </label>
+                            <label class="box-color box-color--yellow" for="box-color-yellow" >
+                                <input type="radio" name="waw-line-color" id="box-color-yellow" value="#ffea00">
+                            </label>
+                            <label class="box-color box-color--red" for="box-color-red">
+                                <input type="radio" name="waw-line-color" id="box-color-red" value="#f80000">
+                            </label>
+                            <label class="box-color box-color--blue" for="box-color-blue">
+                                <input type="radio" name="waw-line-color" id="box-color-blue" value="#2323ff">
+                            </label>
+                            <label class="box-color box-color--white" for="box-color-white">
+                                <input type="radio" name="waw-line-color" id="box-color-white" value="#ffffff">
+                            </label>
+                            <label class="box-color box-color--black" for="box-color-black">
+                                <input type="radio" name="waw-line-color" id="box-color-black" value="#000000">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="setting__item">
+                        <div class="setting__tittle">
+                            <h3>Mascara de Lectura</h3>
+                        </div>
+                        <div class="setting__value">
+                            <h4>Opacidad</h4>
+                            <label for="mask-opacity-low" class="setting__label">
+                                Baja
+                                <input type="radio" name="waw-mask-opacity" id="mask-opacity-low" value="0.4">
+                            </label>
+                            <label for="mask-opacity-medium" class="setting__label">
+                                Media
+                                <input type="radio" name="waw-mask-opacity" id="mask-opacity-medium" value="0.6" checked>
+                            </label>
+                            <label for="mask-opacity-high" class="setting__label">
+                                Alta
+                                <input type="radio" name="waw-mask-opacity" id="mask-opacity-high" value="0.8">
+                            </label>
+                            
+                        </div>
+                        
+                
+                    </div>
+                    <div class="setting__item">
+                        <div class="setting__tittle">
+                            <h3>Lector de Pantalla</h3>
+                        </div>
+                        <div class="setting__value">
+                            <h4>Voz</h4>
+                            <select name="" id="voices-list">
+                                
+                            </select>
+                        </div>
+                        <div class="setting__value">
+                            <h4>Velocidad</h4>
+                            <label for="velocity-low" class="setting__label">
+                                Lento
+                                <input type="radio" name="waw-screenreader-velocity" id="velocity-low" value="0.5">
+                            </label>
+                            <label for="velocity-normal" class="setting__label">
+                                Normal
+                                <input type="radio" name="waw-screenreader-velocity" id="velocity-normal" value="1" checked>
+                            </label>
+                            <label for="velocity-medium" class="setting__label">
+                                Medio
+                                <input type="radio" name="waw-screenreader-velocity" id="velocity-medium" value="1.2">
+                            </label>
+                            <label for="velocity-high" class="setting__label">
+                                Rápido
+                                <input type="radio" name="waw-screenreader-velocity" id="velocity-high" value="1.5">
+                            </label>
+                        </div>
+                        <button class="button-play" id="test-voicereading">
+                            Probar
+                            <svg>
+                                <use href="./assets/icons/icons.svg#icon-play"></use>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </details> -->
+            </details>
             <!-- Sección "Acerca de" -->
             <details class="accordion about">
                 <summary class="accordion__head">
@@ -450,7 +697,11 @@
     </aside>
 
     
-
+    <div class="waw-mute-indicator" id="waw-mute-indicator">
+        <svg aria-hidden="true" focusable="false">
+            <use href="./assets/icons/options.svg#mute"></use>
+        </svg>
+    </div>
     <div id="waw-reading-mask" class="waw-reading-mask hidden">
         <div id="waw-reading-mask__top" class="waw-reading-mask__top"></div>
         <div id="waw-reading-mask__middle" class="waw-reading-mask__middle">
@@ -476,11 +727,11 @@
         <div class="waw-reading-mask__bottom"></div>
     </div>
 
-    <div id="guia-lectura" class="waw-reading-line hidden">
-        <div class="reading-controls reading-controls--line desktop" id="reading-controls-line">
-            <span></span>
-            <button id="btn-close-line" class="reading-controls__button" title="Cerrar guía de lectura">
-                <svg>
+    <div id="waw-reading-line" class="waw-reading-line hidden" role="region" aria-label="Guía de lectura en pantalla" aria-hidden="true">
+        <div class="reading-controls reading-controls--line" id="reading-controls-line">
+            <span role="button" tabindex="0" aria-label="Mostrar controles de lectura"></span>
+            <button id="btn-close-line" class="reading-controls__button" aria-label="Cerrar guía de lectura" title="Cerrar guía de lectura">
+                <svg aria-hidden="true" focusable="false">
                     <use href="./assets/icons/icons.svg#icon-close-circle"></use>
                 </svg>
             </button>
