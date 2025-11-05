@@ -585,11 +585,15 @@
 @media screen and (max-width:576px) and (orientation: portrait){
     .waw{
         width: 100%;
+        max-width: 280px;
         height: 100dvh;
         top: 0;
         border: none;
         border-radius: 0;
     }
+    .waw.left.open {left: 0;}
+    .waw__header {height: 85px;}
+    .waw__header h2 {font-size: 14px;}
     .waw.open {right: 0;}
     .waw__body {padding: 10px;}
     .grid{
