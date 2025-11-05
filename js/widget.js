@@ -1,4 +1,3 @@
-
 // :::::::::::::::::::::::::::::::: ELEMENTOS DEL DOM ::::::::::::::::::::::::::::::::::::::::::::::
 
 const $widget = document.getElementById('waw-widget'); // widget de accesibilidad
@@ -142,6 +141,7 @@ const loadConfigFromLocalStorage = () => {
     if (saved) Object.assign(config, JSON.parse(saved));
     else return;
     setMaskOpacity(config.reading_mask.opacity);
+    mask_height = config.reading_mask.height;
     setLineOpacity(config.reading_line.opacity);
     setLineWeight(config.reading_line.height);
     setLineColor(config.reading_line.color);
@@ -1037,6 +1037,16 @@ const setLineColor = (colorValue) =>{
     if(radio) radio.checked = true
 }
 
+const setMaskHeight = (value) => {
+    const height = parseInt(value);
+    if(height < min_height || height > max_height) return;
+    config.reading_mask.height = height;
+    mask_height = height;
+    if(states.reading_mask) updateMaskSize();
+    const radio = document.querySelector(`input[name="waw-mask-height"][value="${value}"]`);
+    if(radio) radio.checked = true;
+}
+
 const setWidgetPosition = (positionValue) =>{
         if(positionValue !== "left" && positionValue !== "right") return;
         if(positionValue === "right"){
@@ -1188,6 +1198,7 @@ document.addEventListener('input', (e) => {
     if(e.target === $voice_options) setVoiceReadingVoice(e.target.value);
     else if(e.target.name === "waw-screenreader-velocity") setVoiceReadingSpeed(e.target.value);
     else if(e.target.name === "waw-mask-opacity") setMaskOpacity(e.target.value);
+    else if(e.target.name === "waw-mask-height") setMaskHeight(e.target.value);
     else if(e.target.name === "waw-line-opacity") setLineOpacity(e.target.value);
     else if(e.target.name === "waw-line-weight") setLineWeight(e.target.value);
     else if(e.target.name === "waw-line-color") setLineColor(e.target.value);

@@ -72,7 +72,7 @@
     height: 98vh;
     background-color: var(--background);
     color: var(--text-color);
-    transition: right 0.3s ease, background 0.5s ease, color 0.5s ease;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.5s ease, color 0.5s ease;
     z-index: 1001;
     overflow: hidden;
     border: 3px solid #222222;
@@ -81,6 +81,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
 }
 
 .waw::before{
@@ -97,8 +98,9 @@
 .waw.open {right: 10px;visibility: visible;}
 .waw.left{
     left: calc(-1 * (var(--widget-width) + 20px));
-    transition: left 0.3s ease, background 0.5s ease, color 0.5s ease;
+    transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), background 0.5s ease, color 0.5s ease;
     right: unset;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
 }
 .waw.left.open {left: 10px;visibility: visible;}
 
@@ -153,7 +155,7 @@
     width: 45px;
     height: 45px;
     cursor: pointer;
-    transition: background 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,6 +170,11 @@
 .header-options__button:hover {
     color: var(--background-button);
     background-color: var(--text-color);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 0 4px var(--main-color);
+}
+.header-options__button:active {
+    transform: scale(0.95);
 }
 .header-options__button:last-child {margin-left: auto;}
 
@@ -189,11 +196,24 @@
     overflow-y: scroll;
     margin-right: 3px;
     flex-grow: 1;
-    scrollbar-color: #888888 #00000000;
+    scrollbar-color: var(--main-color) transparent;
     scrollbar-width: thin;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.waw__body::-webkit-scrollbar {
+    width: 6px;
+}
+.waw__body::-webkit-scrollbar-track {
+    background: transparent;
+}
+.waw__body::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 3px;
+}
+.waw__body::-webkit-scrollbar-thumb:hover {
+    background: #b7234d;
 }
 
 .grid {  
@@ -250,11 +270,18 @@
     position: relative;
     gap: 8px;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
-    transition: border-color 0.4s ease, background 0.5s ease, color 0.5s ease;
+    transition: all 0.3s ease;
 }
-.opcion:hover {border-color: var(--main-color);}
+.opcion:hover {
+    border-color: var(--main-color);
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
 
-.active {border-color: var(--main-color);}
+.active {
+    border-color: var(--main-color);
+    box-shadow: 0px 0px 0px 2px rgba(214, 43, 91, 0.2);
+}
 
 
 
@@ -265,14 +292,22 @@
     color: var(--light-text-color);
     flex-direction: row;
     border: none;
+    font-weight: 600;
+    gap: 8px;
 }
 .opcion--reset svg {
     width: 20px; 
     height: 20px;
     transition: transform 0.4s ease;
 }
-.opcion--reset:hover {border: none;}
-.opcion--reset:hover svg{transform: rotate(180deg);}
+.opcion--reset:hover {
+    border: none;
+    background-color: #b7234d;
+    transform: translateY(-2px);
+}
+.opcion--reset:hover svg{
+    transform: rotate(180deg) scale(1.1);
+}
 
 .opcion__icono{
     width: 35px;
@@ -311,6 +346,11 @@
 .accordion {
     border: 1px solid #888888be;
     border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.accordion:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .accordion__head{
@@ -323,6 +363,10 @@
     justify-content: space-between;
     padding: 8px 15px;
     list-style: none;
+    transition: background 0.2s ease;
+}
+.accordion__head:hover {
+    background-color: rgba(214, 43, 91, 0.05);
 }
 .accordion__head svg{
     width: 20px;
@@ -545,6 +589,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease;
+}
+.reading-controls__button:hover {
+    background-color: #b7234d;
+    transform: scale(1.1);
+}
+.reading-controls__button:active {
+    transform: scale(0.95);
 }
 .reading-controls__button svg{
     pointer-events: none;
@@ -571,10 +623,24 @@
     cursor: pointer;
     z-index: 1000;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .waw-button.left {left: 20px; right: unset;}
-.waw-button svg {width: 30px; height: 30px;}
-.waw-button:hover {transform: scale(1.05);}
+.waw-button svg {
+    width: 30px; 
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+.waw-button:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.waw-button:hover svg {
+    transform: rotate(10deg);
+}
+.waw-button:active {
+    transform: scale(1.05);
+}
 .dark-theme .waw-button {border-color: var(--main-color);}
 
 /*:::::::::::::::::::::::::::::*/
@@ -686,10 +752,13 @@ html{
     height: 4px;
     background-color: #ccc;
     border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
 .progress__item.active{
     background-color: var(--main-color);
+    height: 5px;
+    box-shadow: 0 0 8px rgba(214, 43, 91, 0.5);
 }
 
 
@@ -767,19 +836,22 @@ input[type="radio"] {
     border: 2px solid #888888be;
     border-radius: 5px;
     cursor: pointer;
-    transition: border-color 0.4s ease;
     margin: 3px 3px 0 0;
-    transition: outline-color 0.3s ease;
+    transition: all 0.3s ease;
     outline: 2px solid transparent;
     outline-offset: 1px;
 }
 .box-color input[type="radio"]{
     display: none;
 }
-.box-color:hover,
-.box-color:has(input[type="radio"]:checked) {
-    
+.box-color:hover {
     outline-color: var(--main-color);
+    transform: scale(1.1);
+}
+.box-color:has(input[type="radio"]:checked) {
+    outline-color: var(--main-color);
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .box-color--green{
     background-color: #1cbe00;
@@ -816,6 +888,15 @@ input[type="radio"] {
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.button-play:hover {
+    background-color: #b7234d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(214, 43, 91, 0.4);
+}
+.button-play:active {
+    transform: translateY(0);
 }
 
 .button-play svg{
