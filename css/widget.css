@@ -620,7 +620,9 @@
         border-bottom-width: 2px;
         top: 0;
     }
+    .waw.left {border-radius: 0 15px 15px 0;}
     .waw.open{right: 0;}
+    .waw.left.open {left: 0;}
 }
 
 
