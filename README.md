@@ -86,4 +86,37 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 - **Sincronización**: Mantiene estado entre sesiones
 
 ---
-</div>
+
+## 📦 Instalación y Uso de WAW Widget
+
+
+### 1️⃣ Usando CDN (sin instalación)
+
+```
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/waw-widget/dist/style.min.css" />
+
+<script type="module">
+  import WAW from "https://cdn.jsdelivr.net/npm/waw-widget/dist/waw.min.js";
+
+  const widget = new WAW();
+  widget.initWidget();
+</script>
+
+
+```
+
+### 2️⃣ Usando archivos locales
+
+```
+<link rel="stylesheet" href="./dist/style.css">
+
+<script type="module">
+  import WAW from "./dist/waw.js";
+
+  const widget = new WAW();
+  widget.initWidget();
+</script>
+
+
+```

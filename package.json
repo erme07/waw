@@ -1,0 +1,84 @@
+{
+  "name": "waw-widget",
+  "version": "1.0.1",
+  "description": "Widget de accesibilidad completo para cualquier sitio web: lector de pantalla, contraste, tamaño de fuente, máscara de lectura, línea de lectura, cursor grande, deshabilitar animaciones, modo dislexia y más.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/waw.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./style.min.css": "./dist/style.min.css"
+  },
+
+  "style": "./dist/style.css",
+
+  "scripts": {
+    "build": "rollup -c"
+  },
+
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "widget",
+    "web-accessibility",
+    "contrast",
+    "font-size",
+    "reading-line",
+    "reading-mask",
+    "screen-reader",
+    "dyslexia",
+    "mute",
+    "big-cursor",
+    "hammerjs",
+    "javascript",
+    "frontend",
+    "browser"
+  ],
+
+  "author": "Medina Erik (https://github.com/erme07)",
+
+  "contributors": [
+    "Pandolfo Pablo",
+    "Guzman Alexis",
+    "Elisey Larco Agustin",
+    "Andrada Alexander Alexis",
+    "Abril Ruiz",
+    "Lobo Santiago",
+    "Ramirez Walter"
+  ],
+
+  "license": "MIT",
+
+  "dependencies": {
+    "hammerjs": "^2.0.8"
+  },
+
+  "devDependencies": {
+    "rollup": "^2.79.2",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "postcss-url": "^10.1.3"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erme07/waw.git"
+  },
+
+  "homepage": "https://github.com/erme07/waw#readme",
+
+  "bugs": {
+    "url": "https://github.com/erme07/waw/issues"
+  }
+}
