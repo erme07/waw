@@ -7,11 +7,27 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.0.5] - 2025-11-18
+### Fixed
+- Resolve assets directions for iife version
+
+---
+
+## [1.0.4] - 2025-11-18
+### Fixed
+- Fix function 
+
+---
+
+## [1.0.3] - 2025-11-18
+### Added
+- Function getBasePath
+
+---
+
 ## [1.0.2] - 2025-11-18
 ### Added
 - Added iffe version of the widget
-
----
 
 ---
 

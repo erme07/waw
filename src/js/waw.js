@@ -23,6 +23,8 @@ import { animations } from './features/StopAnimation.js';
 
 import '../css/style.css';
 
+const WAW_SCRIPT_URL = document.currentScript?.src || "";
+
 class WAW{
     static instance = null;
     constructor(){
@@ -34,6 +36,7 @@ class WAW{
             console.warn("WAW ya fue instanciado. Se usará la instancia existente.");
             return WAW.instance;
         }
+        this.basePath = this.#getBasePath();
         WAW.instance = this;
     }
 
@@ -44,8 +47,18 @@ class WAW{
         await this.#injectSprite();
     }
 
+    #getBasePath() {
+        if (!WAW_SCRIPT_URL) return "";
+        console.log(WAW_SCRIPT_URL.substring(0, WAW_SCRIPT_URL.lastIndexOf("/") + 1))
+        return WAW_SCRIPT_URL.substring(0, WAW_SCRIPT_URL.lastIndexOf("/") + 1);
+    }
+
     async #injectSprite() {
-        const spriteFiles = ["./assets/icons/icons.svg","./assets/icons/options.svg"];
+        const basePath = this.#getBasePath();
+        const spriteFiles = [
+            basePath + "assets/icons/icons.svg",
+            basePath + "assets/icons/options.svg"
+        ];
         const div = document.createElement("div");
         div.style.position = "absolute";
         div.style.width = 0;

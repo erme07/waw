@@ -72,8 +72,8 @@ export default [
             ...basePlugins,
             postcss({
                 extract: false, // CSS embebido dentro del IIFE si querés cambiarlo
+                inject: false,
                 minimize: false,
-                plugins: [assetUrlRewriter]
             })
         ]
     },
@@ -88,8 +88,8 @@ export default [
             ...basePlugins,
             postcss({
                 extract: false,
-                minimize: true,
-                plugins: [assetUrlRewriter]
+                inject: false,
+                minimize: false,
             }),
             terser()
         ]
