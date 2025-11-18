@@ -49,7 +49,6 @@ class WAW{
 
     #getBasePath() {
         if (!WAW_SCRIPT_URL) return "";
-        console.log(WAW_SCRIPT_URL.substring(0, WAW_SCRIPT_URL.lastIndexOf("/") + 1))
         return WAW_SCRIPT_URL.substring(0, WAW_SCRIPT_URL.lastIndexOf("/") + 1);
     }
 
@@ -105,11 +104,9 @@ class WAW{
         let mobileAgent = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         if (mobileAgent) {
             setTouchdevice(true)
-            console.log("Estás en móvil o tablet");
             return true
         } else {
             setTouchdevice(false)
-            console.log("Estás en PC");
             return false
         }
     }
