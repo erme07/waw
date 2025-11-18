@@ -94,28 +94,38 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 
 ```html
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/waw-widget/dist/style.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/waw-widget@1.0.5/dist/style.css">
+<script src="https://unpkg.com/waw-widget@1.0.5/dist/waw.iife.js"></script>
 
-<script type="module">
-  import WAW from "https://cdn.jsdelivr.net/npm/waw-widget/dist/waw.min.js";
+<script>
 
   const widget = new WAW();
-  widget.initWidget();
+  widget.run();
+
 </script>
 
 
 ```
 
-### 2️⃣ Usando archivos locales
+### 2️⃣ Usando NPM
+
+````bash
+
+npm install waw-widget
+
+````
 
 ```html
-<link rel="stylesheet" href="./dist/style.css">
+
 
 <script type="module">
-  import WAW from "./dist/waw.js";
+
+  import WAW from "waw-widget/dist/waw.js";
+  import "waw-widget/dist/style.css";
 
   const widget = new WAW();
-  widget.initWidget();
+  widget.run()
+
 </script>
 
 
