@@ -7,6 +7,14 @@ This project adheres to [Semantic Versioning](https://semver.org/) and follows t
 
 ---
 
+## [1.0.2] - 2025-11-18
+### Added
+- Added iffe version of the widget
+
+---
+
+---
+
 ## [1.0.1] - 2025-11-17
 ### Fixed
 - Code errors corrected

@@ -92,7 +92,7 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 
 ### 1️⃣ Usando CDN (sin instalación)
 
-```
+```html
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/waw-widget/dist/style.min.css" />
 
@@ -108,7 +108,7 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 
 ### 2️⃣ Usando archivos locales
 
-```
+```html
 <link rel="stylesheet" href="./dist/style.css">
 
 <script type="module">

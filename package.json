@@ -1,6 +1,6 @@
 {
   "name": "waw-widget",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Widget de accesibilidad completo para cualquier sitio web: lector de pantalla, contraste, tamaño de fuente, máscara de lectura, línea de lectura, cursor grande, deshabilitar animaciones, modo dislexia y más.",
   "type": "module",
   "exports": {
