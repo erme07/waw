@@ -97,12 +97,7 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 <link rel="stylesheet" href="https://unpkg.com/waw-widget@1.0.5/dist/style.css">
 <script src="https://unpkg.com/waw-widget@1.0.5/dist/waw.iife.js"></script>
 
-<script>
 
-  const widget = new WAW();
-  widget.run();
-
-</script>
 
 
 ```
