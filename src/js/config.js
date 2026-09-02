@@ -6,19 +6,19 @@ import { readingMask } from './features/ReadingMask.js';
 import { voiceReading } from './features/VoiceReading.js';
 
 export const config = {
-    widget:{
+    widget: {
         position: "right", // left/right
     },
-    reading_mask:{
+    reading_mask: {
         height: 100,
         opacity: 0.7
     },
-    reading_line:{
+    reading_line: {
         height: 10,
         opacity: 0.6,
         color: "#1cbe00",
     },
-    voice_reading:{
+    voice_reading: {
         voice: null,
         speed: 1
     }
@@ -43,4 +43,14 @@ export const loadConfigFromLocalStorage = () => {
     WAW.instance.setPosition(config.widget.position);
     voiceReading.setSpeed(config.voice_reading.speed);
     voiceReading.setVoice(config.voice_reading.voice);
-}   
+}
+
+/*
+    Las siguientes variables se usan para customizar el widget:
+        
+        mainColor -> cambia el color del rectangulo del titulo
+        secondColor -> cambia el color del header y footer del del widget
+
+    La configuracion de los colores se encuentra en style.css y luego 
+    dentro :root
+*/

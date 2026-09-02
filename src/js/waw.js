@@ -3,11 +3,12 @@ import { builWidget } from './template/construct.js';
 
 import { states, saveStatesToLocalStorage, loadStatesFromLocalStorage, updateStatesToLocalStorage } from './states.js';
 import { config, loadConfigFromLocalStorage, saveConfigToLocalStorage, updateConfigToLocalStorage } from './config.js';
+import { setColors, setColorsDarkMode } from './colors.js';
 import { setPosYMouse, setTouchdevice } from './variables.js';
 
 import { fontSize } from './features/FontSize.js';
 import { lineHeightSpacing } from './features/LineheightSpacing.js';
-import { letterSpacing} from './features/LetterSpacing.js';
+import { letterSpacing } from './features/LetterSpacing.js';
 import { invertColor } from './features/InvertColor.js';
 import { grayScale } from './features/Grayscale.js';
 import { bigCursor } from './features/BigCursor.js';
@@ -25,22 +26,31 @@ import '../css/style.css';
 
 const WAW_SCRIPT_URL = document.currentScript?.src || "";
 
-class WAW{
+class WAW {
     static instance = null;
-    constructor(){
+
+    constructor(customConfiguration={}) {
         this.$widget = null // widget de accesibilidad
         this.$close_button = null
         this.$open_button = null
         this.widget_open = false // estado del widget
+
+        // Lógica del singleton existente
+        
         if (WAW.instance) {
             console.warn("WAW ya fue instanciado. Se usará la instancia existente.");
             return WAW.instance;
         }
+
+        // Aplicar los colores personalizados si el cliente los envía
+
+        setColors(customConfiguration.colors);
+
         this.basePath = this.#getBasePath();
         WAW.instance = this;
     }
 
-    async #init(){
+    async #init() {
         this.$widget = document.getElementById('waw-widget'); // widget de accesibilidad
         this.$close_button = document.getElementById('close-button');
         this.$open_button = document.getElementById('open-button');
@@ -77,8 +87,8 @@ class WAW{
         document.body.prepend(div);
     }
 
-    setLeft(){
-        if(config.widget.position === 'left') return
+    setLeft() {
+        if (config.widget.position === 'left') return
         this.$widget.classList.add("left");
         this.$open_button.classList.add("left");
         document.getElementById("widget-pos-left").checked = true;
@@ -86,8 +96,8 @@ class WAW{
         config.widget.position = 'left';
     }
 
-    setRight(){
-        if(config.widget.position === 'right') return
+    setRight() {
+        if (config.widget.position === 'right') return
         this.$widget.classList.remove("left");
         this.$open_button.classList.remove("left");
         document.getElementById("widget-pos-right").checked = true;
@@ -95,12 +105,12 @@ class WAW{
         config.widget.position = 'right';
     }
 
-    setPosition(positionValue){
-        if(positionValue !== "left" && positionValue !== "right") return;
+    setPosition(positionValue) {
+        if (positionValue !== "left" && positionValue !== "right") return;
         (positionValue === "right") ? this.setRight() : this.setLeft()
     }
-        
-    #isMobile(){
+
+    #isMobile() {
         let mobileAgent = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         if (mobileAgent) {
             setTouchdevice(true)
@@ -110,33 +120,33 @@ class WAW{
             return false
         }
     }
-    
-    open(){
+
+    open() {
         this.$widget.classList.add('open');
         this.$widget.removeAttribute("inert");
         this.$close_button.focus();
-        this.$open_button.setAttribute("inert","")
+        this.$open_button.setAttribute("inert", "")
         this.widget_open = true;
     }
 
-    close(){
+    close() {
         this.$widget.classList.remove('open');
-        this.$widget.setAttribute("inert","");
+        this.$widget.setAttribute("inert", "");
         this.$open_button.removeAttribute("inert")
         this.$open_button.focus();
         this.widget_open = false;
     }
 
-    toggleWidget(){
+    toggleWidget() {
         !this.widget_open ? this.open() : this.close()
     }
-        
-    toggleTheme(){
-        document.documentElement.classList.toggle("dark-theme")
-        states.dark_theme = !states.dark_theme
+
+    toggleTheme() {
+        states.dark_theme = !states.dark_theme;
+        setColorsDarkMode(states.dark_theme);
     }
 
-    resetFunctions(){
+    resetFunctions() {
         bigCursor.deactivate()
         invertColor.deactivate()
         grayScale.deactivate()
@@ -153,7 +163,7 @@ class WAW{
         fontSize.deactivate()
         mute.deactivate()
 
-        if(voiceReading.elementToRead) voiceReading.elementToRead.classList.remove("read-text");
+        if (voiceReading.elementToRead) voiceReading.elementToRead.classList.remove("read-text");
     }
 
     run() {
@@ -175,61 +185,61 @@ class WAW{
         lineHeightSpacing.init()
         mute.init()
         animations.init()
-        
+
         document.addEventListener("click", (e) => {
             setPosYMouse(e.clientY)
-            if(e.target.closest("#btn-fontsize")) fontSize.setLevel();
-            else if(e.target.closest("#btn-lineheight")) lineHeightSpacing.setLevel();
-            else if(e.target.closest("#btn-letterspacing")) letterSpacing.setLevel();
-            else if(e.target.closest("#btn-color-invert")) invertColor.toggle();
-            else if(e.target.closest("#btn-greyscale")) grayScale.toggle();
-            else if(e.target.closest("#btn-big-cursor")) bigCursor.toggle();
-            else if(e.target.closest("#btn-reading-line")) readingLine.toggle();
-            else if(e.target.closest("#btn-reading-mask")) readingMask.toggle();
-            else if(e.target.closest("#btn-voice-reading")) voiceReading.toggle();
-            else if(e.target.closest('#btn-hide-img')) hideImages.toggle();
-            else if(e.target.closest("#btn-highlight-links")) highlightLinks.toggle();
-            else if(e.target.closest("#btn-highlight-headers")) highlightHeaders.toggle();
-            else if(e.target.closest("#btn-apto-dislexia")) dyslexicFont.toggle();
-            else if(e.target.closest("#btn-mute-sound")) mute.toggle();
-            else if(e.target.closest("#btn-animations")) animations.toggle();
-        
-            else if(e.target.closest("#open-button") || e.target.closest("#close-button")) this.toggleWidget(); 
-            else if(e.target.closest('[data-waw-function="toggle-theme"]')) this.toggleTheme();
-        
-            else if(e.target.closest('[data-waw-function="reset"]')) this.resetFunctions();
-            else if(e.target.closest('#reading-controls-mask')) readingMask.controls(e);
-            else if(e.target.closest('#reading-controls-line')) readingLine.controls(e);
-            else if(e.target.closest('#test-voicereading')) voiceReading.readElement("Texto de prueba para la función de lectura de pantalla");
-            else if(this.widget_open && !this.$widget.contains(e.target)) this.toggleWidget() // cierra el widget al hacer click fuera del mismo
-        
+            if (e.target.closest("#btn-fontsize")) fontSize.setLevel();
+            else if (e.target.closest("#btn-lineheight")) lineHeightSpacing.setLevel();
+            else if (e.target.closest("#btn-letterspacing")) letterSpacing.setLevel();
+            else if (e.target.closest("#btn-color-invert")) invertColor.toggle();
+            else if (e.target.closest("#btn-greyscale")) grayScale.toggle();
+            else if (e.target.closest("#btn-big-cursor")) bigCursor.toggle();
+            else if (e.target.closest("#btn-reading-line")) readingLine.toggle();
+            else if (e.target.closest("#btn-reading-mask")) readingMask.toggle();
+            else if (e.target.closest("#btn-voice-reading")) voiceReading.toggle();
+            else if (e.target.closest('#btn-hide-img')) hideImages.toggle();
+            else if (e.target.closest("#btn-highlight-links")) highlightLinks.toggle();
+            else if (e.target.closest("#btn-highlight-headers")) highlightHeaders.toggle();
+            else if (e.target.closest("#btn-apto-dislexia")) dyslexicFont.toggle();
+            else if (e.target.closest("#btn-mute-sound")) mute.toggle();
+            else if (e.target.closest("#btn-animations")) animations.toggle();
+
+            else if (e.target.closest("#open-button") || e.target.closest("#close-button")) this.toggleWidget();
+            else if (e.target.closest('[data-waw-function="toggle-theme"]')) this.toggleTheme();
+
+            else if (e.target.closest('[data-waw-function="reset"]')) this.resetFunctions();
+            else if (e.target.closest('#reading-controls-mask')) readingMask.controls(e);
+            else if (e.target.closest('#reading-controls-line')) readingLine.controls(e);
+            else if (e.target.closest('#test-voicereading')) voiceReading.readElement("Texto de prueba para la función de lectura de pantalla");
+            else if (this.widget_open && !this.$widget.contains(e.target)) this.toggleWidget() // cierra el widget al hacer click fuera del mismo
+
             updateStatesToLocalStorage();
-            if(states.voice_reading) voiceReading.selectElementToRead(e.target);
+            if (states.voice_reading) voiceReading.selectElementToRead(e.target);
         });
-        
+
         document.addEventListener('input', (e) => {
-            if(e.target.id === "voices-list") voiceReading.setVoice(e.target.value);
-            else if(e.target.name === "waw-screenreader-velocity") voiceReading.setSpeed(e.target.value);
-            else if(e.target.name === "waw-mask-opacity") readingMask.setOpacity(e.target.value);
-            else if(e.target.name === "waw-mask-height") readingMask.setHeight(e.target.value);
-            else if(e.target.name === "waw-line-opacity") readingLine.setOpacity(e.target.value);
-            else if(e.target.name === "waw-line-weight") readingLine.setWeight(e.target.value);
-            else if(e.target.name === "waw-line-color") readingLine.setColor(e.target.value);
-            else if(e.target.name === "waw-widget-position") this.setPosition(e.target.value);
+            if (e.target.id === "voices-list") voiceReading.setVoice(e.target.value);
+            else if (e.target.name === "waw-screenreader-velocity") voiceReading.setSpeed(e.target.value);
+            else if (e.target.name === "waw-mask-opacity") readingMask.setOpacity(e.target.value);
+            else if (e.target.name === "waw-mask-height") readingMask.setHeight(e.target.value);
+            else if (e.target.name === "waw-line-opacity") readingLine.setOpacity(e.target.value);
+            else if (e.target.name === "waw-line-weight") readingLine.setWeight(e.target.value);
+            else if (e.target.name === "waw-line-color") readingLine.setColor(e.target.value);
+            else if (e.target.name === "waw-widget-position") this.setPosition(e.target.value);
             updateConfigToLocalStorage();
         });
 
         this.#isMobile();
         saveStatesToLocalStorage();
         loadStatesFromLocalStorage();
-        
+
         speechSynthesis.addEventListener('voiceschanged', () => {
             loadConfigFromLocalStorage();
             voiceReading.getAvailableVoices()
             saveConfigToLocalStorage();
         });
-        
-        if(this.#isMobile) speechSynthesis.getVoices() // en dispositivos moviles puede no dipararse el evento 'voicechanged', fuerzo a que se dispare
+
+        if (this.#isMobile) speechSynthesis.getVoices() // en dispositivos moviles puede no dipararse el evento 'voicechanged', fuerzo a que se dispare
     }
 }
 

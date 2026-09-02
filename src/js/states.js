@@ -13,6 +13,7 @@ import { highlightHeaders } from './features/HighlightHeaders.js';
 import { dyslexicFont } from './features/DyslexicFont.js';
 import { mute } from './features/Mute.js';
 import { animations } from './features/StopAnimation.js';
+import { setColorsDarkMode } from './colors.js';
 
 export const states = {
     text_size: false,
@@ -48,7 +49,9 @@ export const loadStatesFromLocalStorage = () => {
     const saved = localStorage.getItem('wawStates');
     if (saved) Object.assign(states, JSON.parse(saved));
     else return;
-    if(states.dark_theme) document.documentElement.classList.add("dark-theme");
+    if(states.dark_theme) {
+        setColorsDarkMode(states.dark_theme);
+    }
     if(states.big_cursor) bigCursor.activate();
     if(states.greyscale) grayScale.activate();
     if(states.color_invert) invertColor.activate();
