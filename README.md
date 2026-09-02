@@ -6,7 +6,7 @@
 
 La accesibilidad web es fundamental para garantizar que todas las personas, independientemente de sus capacidades físicas, sensoriales, cognitivas o tecnológicas, puedan navegar y utilizar sitios web de manera equitativa. **WAW** es un widget completo que permite mejorar la accesibilidad de cualquier sitio web sin necesidad de realizar cambios complejos en el código.
 
-## 🚀 [Demostración en Vivo](https://erme07.github.io/waw_demo/)
+## 🚀 [Demostración en Vivo](https://alexanderandrada.github.io/waw_demo/)
 
 ---
 
@@ -97,12 +97,7 @@ La accesibilidad web es fundamental para garantizar que todas las personas, inde
 <link rel="stylesheet" href="https://unpkg.com/waw-widget@1.0.5/dist/style.css">
 <script src="https://unpkg.com/waw-widget@1.0.5/dist/waw.iife.js"></script>
 
-<script>
 
-  const widget = new WAW();
-  widget.run();
-
-</script>
 
 
 ```
